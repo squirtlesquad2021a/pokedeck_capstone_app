@@ -1,0 +1,2 @@
+class BindersController < ApplicationController
+end
