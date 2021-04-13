@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_184928) do
+ActiveRecord::Schema.define(version: 2021_04_13_200046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_04_13_184928) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "pokemon_type"
     t.string "set_id"
     t.string "set_name"
     t.string "set_series"
