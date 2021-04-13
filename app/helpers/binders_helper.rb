@@ -1,0 +1,2 @@
+module BindersHelper
+end

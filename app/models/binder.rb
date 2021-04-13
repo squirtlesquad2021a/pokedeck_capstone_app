@@ -1,0 +1,2 @@
+class Binder < ApplicationRecord
+end
