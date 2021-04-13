@@ -13,6 +13,11 @@ import NotFound from './pages/NotFound'
 import Rankings from './pages/Rankings'
 import Splash from './pages/Splash'
 import UserCardIndex from './pages/UserCardIndex'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
 
 class App extends Component{
   constructor(props){
@@ -28,7 +33,21 @@ class App extends Component{
   render () {
     return (
       <>
-
+      <Header />
+      <Router>
+        <Switch>
+          <Route exact path = "/" component={ Splash } />
+          <Route path = "/home" component={ Home } />
+          <Route path = "/aboutus" component={ AboutUs } />
+          <Route path = "/rankings" component={ Rankings } />
+          <Route path= "/cardshow/:id" component={ CardShow } />
+          <Route path= "/claimcard" component={ ClaimCard } />
+          <Route path= "/claimbooster" component={ ClaimBooster } />
+          <Route path= "/usercardindex" component={ UserCardIndex } />
+          <Route component={ NotFound }/>
+        </Switch>
+      </Router>
+      <Footer />
       </>
     );
   }
