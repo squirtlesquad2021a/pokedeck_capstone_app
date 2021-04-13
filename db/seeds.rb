@@ -10,18 +10,22 @@
 users = [
     {
         email: 'guerrero@email.com',
+        username: 'guerrero',
         password: 'password'
     },
     {
         email: 'fernando@email.com',
+        username: 'fernando',
         password: 'password'
     },
     {
         email: 'lex@email.com',
+        username: 'lex',
         password: 'password'
     },
     {
         email: 'allen@email.com',
+        username: 'allen',
         password: 'password'
     }
 ]
@@ -37,24 +41,20 @@ json = JSON.parse response
 puts json
 if !json.nil?
   json["data"].map do |card|
+
+    pokemon_type = card["supertype"]
     if card["supertype"] == "Pokémon"
       pokemon_type = card["types"][0]
-    else
-      pokemon_type = card["supertype"]
     end
     if card.key?("tcgplayer") == false
       price = 0
     else
-      if card["tcgplayer"]["prices"].key?("holofoil")
-        price = card["tcgplayer"]["prices"]["holofoil"]["high"]
-      elsif card["tcgplayer"]["prices"].key?("reverseHolofoil")
-        price = card["tcgplayer"]["prices"]["reverseHolofoil"]["high"]
-      elsif card["tcgplayer"]["prices"].key?("1stEditionHolofoil")
-        price = card["tcgplayer"]["prices"]["1stEditionHolofoil"]["high"]
-      elsif card["tcgplayer"]["prices"].key?("normal")
-        price = card["tcgplayer"]["prices"]["normal"]["high"]
-      else
-        price = 0
+      price_types = ["holofoil", "reverseHolofoil", "1stEditionHolofoil", "normal"]
+      price = 0
+      price_types.each do |type|
+        if card["tcgplayer"]["prices"].key?(type)
+          price = card["tcgplayer"]["prices"][type]["high"]
+        end
       end
     end
     Card.create(
