@@ -33,7 +33,7 @@ class App extends Component{
   render () {
     return (
       <>
-      <Header />
+      {/* <Header /> */}
       <Router>
         <Switch>
           <Route exact path = "/" component={ Splash } />
@@ -47,7 +47,7 @@ class App extends Component{
           <Route component={ NotFound }/>
         </Switch>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
       </>
     );
   }
