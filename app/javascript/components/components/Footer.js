@@ -1,11 +1,14 @@
 import React, { Component } from "react"
+import { NavLink } from 'react-router-dom'
+
 
 
 class Footer extends Component{
 render() {
     return(
         <div>
-            <h3>This is a footer</h3>
+            <h7>&copy; Squirtle Squad </h7> 
+            <NavLink to="/aboutus"> About us</NavLink>
         </div>
         
     )

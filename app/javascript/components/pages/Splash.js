@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { NavLink } from 'react-router-dom'
-import PokeLogo from '../../../assets/images/PokeLogo2-1-removebg-preview.png'
+import PokeLogo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
 import {
     Container,
     Collapse,
@@ -17,6 +17,7 @@ import {
   } from 'react-router-dom'
 
 
+
 class Splash extends Component{
 render() {
     return(
@@ -26,7 +27,8 @@ render() {
             className = "splash">
                 <div 
                     className= "square">
-                        <img src= {PokeLogo}></img>
+                        <a href="/home"><img src= {PokeLogo} alt="pokedeckLogo" className= "logo-splash" /></a>
+        
                 </div>
                 
         </div>

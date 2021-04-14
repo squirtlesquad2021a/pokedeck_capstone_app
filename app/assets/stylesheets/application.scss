@@ -17,18 +17,24 @@
 @import 'bootstrap';
 
 .logo {
-    background-image: url('pokedeck_logo1(transparent_bg)-page-001.jpg');
-    height: 200px;
-    width: 200px;
+    height: 60px;
+    width: 95px;
     // display: flex;
 
 }
 
+.logo-splash {
+    height: 40vh;
+    width: 40vw;
 
+}
 .square {
-    height: 50vh;
+    height: 60vh;
     width: 100vw;
     background-color: rgb(112, 161, 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .splash {

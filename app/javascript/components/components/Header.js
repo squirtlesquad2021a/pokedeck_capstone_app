@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../../../assets/images/logo.png'
+import logo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
 import {
     BrowserRouter as Router,
     Route,
@@ -29,31 +29,34 @@ const Header = (props) => {
     
 
   return (
-    <Router>
+    <>
     <div className="header-main"></div>
       <Navbar color="light" light expand="md">
         <Container>
-        <NavLink to="/"><img src={ logo } alt="pokedeckLogo" className="logo" /></NavLink>
+        <Nav>
+        <NavItem>
+        <NavLink to="/home"><img src={ logo } alt="pokedeckLogo" className="logo" /></NavLink>
+        </NavItem>
         <NavbarToggler onClick={toggle} />
+        </Nav>
+   
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink to="/home/">Browse Cards</NavLink>
-              </NavItem>
-              { logged_in &&
+            
+              { logged_in && 
+              <>
                 <NavItem>
-                  <NavLink to="/claimcard/">Claim your daily card</NavLink>
+                  <NavLink to="/claimcard">Claim your daily card</NavLink>
                 </NavItem>
-              }
-              { logged_in &&
+
                 <NavItem>
-                  <NavLink to="/usercardindex/">See my deck</NavLink>
+                  <NavLink to="/usercardindex">See my deck</NavLink>
                 </NavItem>
-            }
-            { logged_in &&
+
                 <NavItem>
-                  <NavLink to="/rankings/">See Rankings</NavLink>
+                  <NavLink to="/rankings">See Rankings</NavLink>
                 </NavItem>
+              </>
             }
           </Nav>
             <Nav>
@@ -62,22 +65,23 @@ const Header = (props) => {
                         <a href={ sign_out_route } className="nav-link">Sign Out</a>
                     </NavItem>
                 }
+                
                 { !logged_in &&
-                    <NavItem>
+                <>
+                <NavItem>
                         <a href={ new_user_route } className="nav-link">Create Account</a>
                     </NavItem>
-                }
-                { !logged_in &&
                     <NavItem>
                         <a href={ sign_in_route } className="nav-link">Sign In</a>
                     </NavItem>
+                </>
                 }
             </Nav>
         </Collapse>
       </Container>
     </Navbar>
-
-  </Router>
+  
+  </>
   );
   }
  
