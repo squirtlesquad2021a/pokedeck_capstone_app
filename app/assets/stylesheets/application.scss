@@ -17,9 +17,32 @@
 @import 'bootstrap';
 
 .logo {
-    background-image: url('pokedeck_logo1(transparent_bg)-page-001.jpg');
-    height: 200px;
-    width: 200px;
+    height: 60px;
+    width: 95px;
     // display: flex;
+
+}
+
+.logo-splash {
+    height: 40vh;
+    width: 40vw;
+
+}
+.square {
+    height: 60vh;
+    width: 100vw;
+    background-color: rgb(112, 161, 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash {
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/97a1749e-0dec-4b7a-8de6-f61481078435/d93bght-cb13859f-1629-4d39-9caa-1c28f91d1eea.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOTdhMTc0OWUtMGRlYy00YjdhLThkZTYtZjYxNDgxMDc4NDM1XC9kOTNiZ2h0LWNiMTM4NTlmLTE2MjktNGQzOS05Y2FhLTFjMjhmOTFkMWVlYS5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.LbzIE8AsRPrdHrMDgZU-3u9IgT6Bf7_QqWNSQaKYmac");
+    // background-image: url("https://cdn.vox-cdn.com/thumbor/22I6pvMdtX2GPikApQadbE2fxWc=/0x0:2257x1320/1820x1213/filters:focal(949x480:1309x840):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63738986/pokemon.0.0.png");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
 
 }
