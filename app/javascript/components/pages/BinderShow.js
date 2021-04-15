@@ -4,18 +4,21 @@ import { Button } from "reactstrap"
 
 class BinderShow extends Component {
   render() {
-    const sleeve = this.props.usersBinders;
+
+    const card = this.props.binder.card_data;
+    
 
     return (
       <>
         <div className = "center"> 
-            <h1>{sleeve.name}</h1>
+            <h1>{card.name}</h1>
             <br></br>
-            <img src= {sleeve.image} alt="sleeve Image" width="25%" height="25%"></img> 
-            <div>Name: {sleeve.name}</div>
-            <div>Type: {sleeve.pokemon_type}</div>
-            <div>Rarity: {sleeve.rarity}</div>
-            <div>Price: {sleeve.price}</div>
+            <img src= {card.image} alt="sleeve Image" width="25%" height="25%"></img> 
+            <div>Name: {card.name}</div>
+            <div>Type: {card.pokemon_type}</div>
+            <div>Rarity: {card.rarity}</div>
+            <div>Price: {card.price}</div>
+            <div>Quantity: {this.props.binder.quantity}</div>
         </div>
       </>
     )

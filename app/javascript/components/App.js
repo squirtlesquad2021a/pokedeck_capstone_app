@@ -43,14 +43,14 @@ class App extends Component{
     return (
       <>
       <Router>
-        {/* {
-        !( window.location.pathname === '/') &&  */}
+        {
+        !( window.location.pathname === '/') && 
         
           <Header logged_in={logged_in}
             sign_in_route={sign_in_route}
             sign_out_route={sign_out_route}
             new_user_route={new_user_route}/>
-        {/* } */}
+         } 
         <Switch>
           <Route exact path = "/" component={ Splash } />
           <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
@@ -75,8 +75,8 @@ class App extends Component{
             />
           <Route path="/bindershow/:id" render = {(props) => {
             const id = +props.match.params.id
-            const sleeve = this.state.usersBinders.find(sleeve => sleeve.id === id)
-            return (<BinderShow sleeve={sleeve}/>)}
+            const binder = this.state.bindersleeves.find(binder => binder.id === id)
+            return (<BinderShow binder={binder}/>)}
             } />
           <Route component={ NotFound }/>
         </Switch>
