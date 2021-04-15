@@ -10,6 +10,17 @@ class BindersController < ApplicationController
     render json: binder_with_cards
   end
 
+  def show
+    binder = Binder.find(params[:id])
+    render json: binder
+  end
+
+  def update
+    binder = Binder.find(params[:id])
+    binder.update(binder_params)
+    render json: binder
+  end
+
   def booster_pack
     # initialize a blank array to store the Pokemon card ids
     pokemon_card_numbers = []
@@ -53,6 +64,33 @@ class BindersController < ApplicationController
 
     render json: binder
 
+  end
+
+  
+  def deck_price
+    # create a variable to hold the sum
+    sum = 0
+
+    # query for all of the user's binders
+    binders = User.find(params[:user_id]).binders
+    
+    # iterate through the user's binders to calculate the subtotal of that binder
+    binders.each do |binder|
+      binder_price = binder.quantity * binder.card.price
+      # add that binder's subtotal to the sum
+      sum += binder_price
+  end
+
+    # return the sum
+    render json: sum.round(2)
+  end
+  
+  def rankings
+  end
+
+  private
+  def binder_params
+      params.require(:binder).permit(:user_id, :card_id, :quantity, :favorite)
   end
 
 end
