@@ -59,28 +59,27 @@ const Header = (props) => {
               </>
             }
           </Nav>
-            <Nav>
-                { logged_in &&
-                    <NavItem>
-                        <a href={ sign_out_route } className="nav-link">Sign Out</a>
-                    </NavItem>
-                }
+          <Nav>
+            { logged_in &&
+              <NavItem>
+                <a href={ sign_out_route } className="nav-link">Sign Out</a>
+              </NavItem>
+            }
                 
-                { !logged_in &&
-                <>
+            { !logged_in &&
+              <>
                 <NavItem>
-                        <a href={ new_user_route } className="nav-link">Create Account</a>
-                    </NavItem>
-                    <NavItem>
-                        <a href={ sign_in_route } className="nav-link">Sign In</a>
-                    </NavItem>
-                </>
-                }
-            </Nav>
+                  <a href={ new_user_route } className="nav-link">Create Account</a>
+                </NavItem>
+                <NavItem>
+                  <a href={ sign_in_route } className="nav-link">Sign In</a>
+                </NavItem>
+              </>
+            }
+          </Nav>
         </Collapse>
       </Container>
     </Navbar>
-  
   </>
   );
   }
