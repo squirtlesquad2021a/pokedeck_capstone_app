@@ -79,33 +79,57 @@ end
   # t.integer "card_id"
   # t.integer "quantity"
   # t.boolean "favorite"
-binders = [
-  {
-    user_id: User.first.id,
-    card_id: Card.first.id,
-    quantity: 1,
-    favorite: true
-  },
-  {
-    user_id: User.second.id,
-    card_id: Card.second.id,
-    quantity: 1,
-    favorite: true
-  },
-  {
-    user_id: User.third.id,
-    card_id: Card.find(15).id,
-    quantity: 3,
-    favorite: true
-  },
-  {
-    user_id: User.fourth.id,
-    card_id: Card.fourth.id,
-    quantity: 2,
-    favorite: false
-  }
-]
+# binders = [
+#   {
+#     user_id: User.first.id,
+#     card_id: Card.first.id,
+#     quantity: 1,
+#     favorite: true
+#   },
+#   {
+#     user_id: User.second.id,
+#     card_id: Card.second.id,
+#     quantity: 1,
+#     favorite: true
+#   },
+#   {
+#     user_id: User.third.id,
+#     card_id: Card.find(15).id,
+#     quantity: 3,
+#     favorite: true
+#   },
+#   {
+#     user_id: User.fourth.id,
+#     card_id: Card.fourth.id,
+#     quantity: 2,
+#     favorite: false
+#   },
+#   {
+#     user_id: User.first.id,
+#     card_id: Card.find(10).id,
+#     quantity: 1,
+#     favorite: false
+#   },
+#   {
+#     user_id: User.second.id,
+#     card_id: Card.find(99).id,
+#     quantity: 4,
+#     favorite: true
+#   },
+#   {
+#     user_id: User.third.id,
+#     card_id: Card.find(70).id,
+#     quantity: 1,
+#     favorite: false
+#   },
+#   {
+#     user_id: User.fourth.id,
+#     card_id: Card.find(40).id,
+#     quantity: 1,
+#     favorite: false
+#   }
+# ]
 
-binders.each do |attributes|
-    Binder.create attributes
-end
+# binders.each do |attributes|
+#     Binder.create attributes
+# end
