@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
     # pass params for the sign in form
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :password])
   end
+  
 end
