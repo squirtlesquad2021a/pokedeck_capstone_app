@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Rankings from './pages/Rankings'
 import Splash from './pages/Splash'
+import BinderShow from './pages/BinderShow'
 import UserCardIndex from './pages/UserCardIndex'
 import {
   BrowserRouter as Router,
@@ -42,14 +43,14 @@ class App extends Component{
     return (
       <>
       <Router>
-        {
-        !( window.location.pathname === '/') && 
+        {/* {
+        !( window.location.pathname === '/') &&  */}
         
           <Header logged_in={logged_in}
             sign_in_route={sign_in_route}
             sign_out_route={sign_out_route}
             new_user_route={new_user_route}/>
-        }
+        {/* } */}
         <Switch>
           <Route exact path = "/" component={ Splash } />
           <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
@@ -62,11 +63,27 @@ class App extends Component{
             } />
           <Route path= "/claimcard" component={ ClaimCard } />
           <Route path= "/claimbooster" component={ ClaimBooster } />
-          <Route path= "/usercardindex" component={ UserCardIndex } />
+
+          <Route
+              path="/usercardindex"
+              render={ (props) => {
+                  const usersBinders = this.state.bindersleeves.filter(binder => {
+                    return binder.user_id === current_user.id
+                  })
+                  return <UserCardIndex usersBinders={usersBinders} />
+              }}
+            />
+          <Route path="/bindershow/:id" render = {(props) => {
+            const id = +props.match.params.id
+            const sleeve = this.state.usersBinders.find(sleeve => sleeve.id === id)
+            return (<BinderShow sleeve={sleeve}/>)}
+            } />
           <Route component={ NotFound }/>
         </Switch>
-        {
-        !( window.location.pathname === '/') && <Footer />}
+        
+        {/* // !( window.location.pathname === '/') &&  */}
+        <Footer />
+        
       </Router>
       </>
     );

@@ -5,7 +5,7 @@ import { Button } from "reactstrap"
 class CardShow extends Component {
   render() {
     const card = this.props.card;
-    console.log(card)
+
     return (
       <>
         <div className = "center"> 
@@ -13,7 +13,7 @@ class CardShow extends Component {
             <br></br>
             <img src= {card.image} alt="card Image" width="25%" height="25%"></img> 
             <div>Name: {card.name}</div>
-            <div>Type: {card.spokemon_type}</div>
+            <div>Type: {card.pokemon_type}</div>
             <div>Rarity: {card.rarity}</div>
             <div>Price: {card.price}</div>
         </div>
