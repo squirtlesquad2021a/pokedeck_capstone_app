@@ -1,20 +1,6 @@
 import React, { Component } from "react"
-import { NavLink } from 'react-router-dom'
-import PokeLogo from '../../../assets/images/PokeLogo2-1-removebg-preview.png'
-import {
-    Container,
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-  } from 'reactstrap';
-  import {
-    BrowserRouter as Router,
-    Route,
-    Switch
-  } from 'react-router-dom'
+// import PokeLogo from '../../../assets/images/PokeLogo2-1-removebg-preview.png'
+
 
 
 
