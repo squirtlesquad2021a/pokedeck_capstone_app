@@ -38,43 +38,35 @@ class App extends Component{
       new_user_route,
       current_user,
     } = this.props
+    const { cards } = this.state
     return (
       <>
       <Router>
         {
         !( window.location.pathname === '/') && 
         
-      <Header logged_in={logged_in}
+          <Header logged_in={logged_in}
             sign_in_route={sign_in_route}
             sign_out_route={sign_out_route}
             new_user_route={new_user_route}/>
         }
         <Switch>
           <Route exact path = "/" component={ Splash } />
-          {/* <div> */}
-    
-          <Route path = "/home" component={ Home } />
-
-          {/* <Route path = "/home" render={ (props)=> <Home      
-        logged_in={logged_in}
-        sign_in_route={sign_in_route}
-        sign_out_route={sign_out_route}
-        new_user_route={new_user_route}/>} /> */}
+          <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
           <Route path = "/aboutus" component={ AboutUs } />
           <Route path = "/rankings" component={ Rankings } />
-          <Route path= "/cardshow/:id" component={ CardShow } />
+          <Route path="/cardshow/:id" render = {(props) => {
+            const id = +props.match.params.id
+            const card = this.state.cards.find(card => card.id === id)
+            return (<CardShow card={card}/>)}
+            } />
           <Route path= "/claimcard" component={ ClaimCard } />
           <Route path= "/claimbooster" component={ ClaimBooster } />
           <Route path= "/usercardindex" component={ UserCardIndex } />
           <Route component={ NotFound }/>
-          {/* </div> */}
-          
-
         </Switch>
         {
         !( window.location.pathname === '/') && <Footer />}
-        
-        
       </Router>
       </>
     );

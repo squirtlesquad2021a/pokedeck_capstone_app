@@ -1,11 +1,16 @@
 
 import React, { Component } from "react"
-import Header from '../components/Header.js'
-import Footer from '../components/Footer.js'
+import { NavLink } from 'react-router-dom'
+
+import {
+    Card, Button, CardImg, CardTitle, CardText, CardDeck,
+    CardSubtitle, CardBody
+  } from 'reactstrap';
 
 
 class Home extends Component{
 render() {
+    console.log(this.props.cards)
     const {
         logged_in,
         sign_in_route,
@@ -13,19 +18,22 @@ render() {
         new_user_route
       } = this.props
 
+      
     return(
         <>
-        {/* <Header 
-        logged_in={logged_in}
-        sign_in_route={sign_in_route}
-        sign_out_route={sign_out_route}
-        new_user_route={new_user_route}
-
-        /> */}
-            <h3>This is the Home page </h3>
-            {/* <Footer />  */}
+        
+        <CardDeck>
+        {this.props.cards && this.props.cards.map((card, index) => {
+              return (
+            <Card body key = {index}>
+                <NavLink to={`/cardshow/${card.id}`}>
+                <CardImg top width="100%" src={card.image} alt="Card image" />
+                </NavLink>
+            </Card>
+        )})}
+        </CardDeck>
         </>   
     )
-    }
-}
+    }}
+
 export default Home

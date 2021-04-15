@@ -19,9 +19,9 @@
 .logo {
     height: 60px;
     width: 95px;
-    // display: flex;
 
 }
+
 
 .logo-splash {
     height: 40vh;
@@ -45,4 +45,9 @@
     background-size: cover;
     background-repeat: no-repeat;
 
+}
+
+.center {
+    text-align: center;
+    -ms-flex-item-align: center;
 }
