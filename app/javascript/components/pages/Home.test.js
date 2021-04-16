@@ -1,14 +1,17 @@
-import App from './App,js';
+import Home from './Home';
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import Header from "./components/Header.js"
-import Footer from "./components/Footer.js"
 
 Enzyme.configure({ adapter: new Adapter()})
 
-describe('When App renders', () => {
-    let renderedApp;
+describe('When Home renders', () => {
+    let renderedHome;
     beforeEach(() => {
-      renderedApp = shallow(<App />);
-    });
+      renderedHome = shallow(<Home />);
+    })
+    it('displays card index', () => {
+      const renderedCard = renderedHome.find('CardDeck');
+      expect(renderedCard.length).toEqual(1)
+    })
+  })

@@ -1,14 +1,15 @@
-import App from './App,js';
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import Header from "./components/Header.js"
-import Footer from "./components/Footer.js"
+import Header from './Header.js'
+
 
 Enzyme.configure({ adapter: new Adapter()})
-
-describe('When App renders', () => {
-    let renderedApp;
-    beforeEach(() => {
-      renderedApp = shallow(<App />);
-    });
+describe('When Header renders', () => {
+  it('displays a Header', () => {
+    const header = shallow(<Header />);
+    const headerLink = header.find('NavLink');
+    expect(headerLink.length).toEqual(4);
+    // expect(location.pathname).toEqual('/')
+  });
+})

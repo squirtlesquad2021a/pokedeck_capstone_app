@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-// import logo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
+import logo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
 import {
     BrowserRouter as Router,
     Route,

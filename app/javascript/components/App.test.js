@@ -16,16 +16,19 @@ describe('When App renders', () => {
       renderedApp = shallow(<App />);
     });
     it('has routes to all pages', ()=>{
-      const renderedRoutes = renderedApp.find("[path="/"]");
-      expect(renderedRoutes.length).toEqual(1);
+      // const renderedRoutes = renderedApp.find('[path = "/"]');
+      expect(location.pathname).toEqual('/')
+      // expect(location.pathname).toEqual('/home')
+
+      // expect(renderedRoutes.length).toEqual(1);
       // expect(renderedRoutes.props())
     })
 
-
-
-    // it('displays Footer', () => {
-    //     const Footer = shallow(<Footer />)
-    //     expect(Footer.find('h6').text()).toEqual("&copy; Squirtle Squad");
-    //   });
+    it('displays Footer', () => {
+      const renderedFooter = renderedApp.find('Footer');
+        expect(renderedFooter.length).toEqual(1)
+       });
 
     })
+
+    

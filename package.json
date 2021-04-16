@@ -30,5 +30,11 @@
   },
   "jest": {
     "rootDir": "./app/javascript"
+  },
+  "moduleNameMapper": {
+    "\\.(css|scss|less)$": "<rootDir>/config/jest/styleMock.js",
+    "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/components/components/__mock__/mockStyles.js"
   }
 }
+
+
