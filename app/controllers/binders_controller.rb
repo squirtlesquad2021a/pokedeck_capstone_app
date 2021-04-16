@@ -79,7 +79,7 @@ class BindersController < ApplicationController
       binder_price = binder.quantity * binder.card.price
       # add that binder's subtotal to the sum
       sum += binder_price
-  end
+    end
 
     # return the sum
     render json: sum.round(2)

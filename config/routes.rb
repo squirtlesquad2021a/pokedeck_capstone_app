@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rankings
   resources :binders
   resources :cards
   devise_for :users
