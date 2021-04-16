@@ -7,9 +7,9 @@ class Footer extends Component{
 render() {
     return(
         <>
-        <div>
+        <div className = "center">
             <h6>&copy; Squirtle Squad </h6> 
-            <NavLink to="/aboutus"> About us</NavLink>
+            <NavLink to="/aboutus" className="devise-text"> About us</NavLink>
         </div>
         </>
         

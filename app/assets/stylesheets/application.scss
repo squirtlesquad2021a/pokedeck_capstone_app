@@ -18,7 +18,7 @@
 
 .logo {
     height: 60px;
-    width: 95px;
+    width: 140px;
 
 }
 
@@ -50,4 +50,17 @@
 .center {
     text-align: center;
     -ms-flex-item-align: center;
+}
+
+.nav-link {
+    margin-left: 150px;
+    color:black !important;
+}
+
+body {
+    background-color:darkgrey
+}
+
+.devise-text {
+    color: black
 }

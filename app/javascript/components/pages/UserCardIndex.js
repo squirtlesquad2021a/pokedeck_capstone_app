@@ -13,16 +13,15 @@ class UserCardIndex extends Component {
         
         return (
             <>
-                <h2>These are your cards</h2>
+                <h2 className="center">These are your cards</h2>
                 <CardDeck>
 
                         {this.props.usersBinders && this.props.usersBinders.map(binder => {
                              let { card_data } = binder 
                             return (
-                                <Card bodykey={card_data.id}>
+                                <Card key={card_data.id}>
                                     <NavLink
                                         to={`/bindershow/${card_data.id}`}>
-                                            {card_data.name}
                                         <CardImg top width="100%" src={card_data.image} alt="Card image" />       
                                     </NavLink>
                                 </Card>

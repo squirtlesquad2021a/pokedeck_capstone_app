@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-// import PokeLogo from '../../../assets/images/PokeLogo2-1-removebg-preview.png'
+import PokeLogo from '../../../assets/images/PokeLogo2-1-removebg-preview.png'
 
 
 

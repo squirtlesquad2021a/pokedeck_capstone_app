@@ -31,8 +31,8 @@ const Header = (props) => {
   return (
     <>
     <div className="header-main"></div>
-      <Navbar color="light" light expand="md">
-        <Container>
+      <Navbar color="secondary" dark expand="md">
+        {/* <Container> */}
         <Nav>
         <NavItem>
         <NavLink to="/home"><img src={ logo } alt="pokedeckLogo" className="logo" /></NavLink>
@@ -46,15 +46,15 @@ const Header = (props) => {
               { logged_in && 
               <>
                 <NavItem>
-                  <NavLink to="/claimcard">Claim your daily card</NavLink>
+                  <NavLink to="/claimcard" className="nav-link devise-text">Claim your daily card</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink to="/usercardindex">See my deck</NavLink>
+                  <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink to="/rankings">See Rankings</NavLink>
+                  <NavLink to="/rankings" className="nav-link devise-text">See Rankings</NavLink>
                 </NavItem>
               </>
             }
@@ -62,23 +62,23 @@ const Header = (props) => {
           <Nav>
             { logged_in &&
               <NavItem>
-                <a href={ sign_out_route } className="nav-link">Sign Out</a>
+                <a href={ sign_out_route } className="nav-link devise-text">Sign Out</a>
               </NavItem>
             }
                 
             { !logged_in &&
               <>
                 <NavItem>
-                  <a href={ new_user_route } className="nav-link">Create Account</a>
+                  <a href={ new_user_route } className="nav-link devise-text" >Create Account</a>
                 </NavItem>
                 <NavItem>
-                  <a href={ sign_in_route } className="nav-link">Sign In</a>
+                  <a href={ sign_in_route } className="nav-link devise-text">Sign In</a>
                 </NavItem>
               </>
             }
           </Nav>
         </Collapse>
-      </Container>
+      {/* </Container> */}
     </Navbar>
   </>
   );
