@@ -28,14 +28,12 @@
   "scripts": {
     "test": "jest"
   },
-  
   "jest": {
-    "roots": ["app/javascript/components"],
+    "roots": [
+      "app/javascript/components"
+    ],
     "moduleNameMapper": {
       "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/app/javascript/components/__mocks__/mockStyles.js"
     }
   }
-  
 }
-
-

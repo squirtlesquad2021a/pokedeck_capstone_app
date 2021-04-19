@@ -13,7 +13,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
+  NavItem, 
+  Button,
 } from 'reactstrap';
 
 const Header = (props) => {
@@ -31,7 +32,7 @@ const Header = (props) => {
   return (
     <>
     <div className="header-main"></div>
-      <Navbar color="secondary" dark expand="md">
+        <Navbar color="secondary" dark expand="md">
         {/* <Container> */}
         <Nav>
         <NavItem>
@@ -45,10 +46,9 @@ const Header = (props) => {
             
               { logged_in && 
               <>
-                <NavItem>
-                  <NavLink to="/claimcard" className="nav-link devise-text">Claim your daily card</NavLink>
-                </NavItem>
-
+              <NavItem>
+               <Button outline color="primary">Claim Card</Button>{' '}
+               </NavItem>  
                 <NavItem>
                   <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
                 </NavItem>
