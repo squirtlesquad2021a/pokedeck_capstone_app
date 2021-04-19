@@ -79,4 +79,62 @@ RSpec.describe "Binders", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "GET /deckprice/:user_id" do
+    it "gets user's deck price" do
+      #arrange
+      user1 =User.create(
+        email:"userone@noemail.com",
+        password:"password",
+        username:"userone"
+      )
+      card1 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card2 = Card.create(
+        name: "Blastoise",
+        pokemon_type: "Water",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "2",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/2_hires.png",
+        price: 399.99
+      )
+      binder1 = Binder.create(
+        user_id:user1.id,
+        card_id:card1.id,
+        quantity:2,
+        favorite:true
+      )
+      binder2 = Binder.create(
+        user_id:user1.id,
+        card_id:card2.id,
+        quantity:1,
+        favorite:true
+      )
+      #act
+      get "/deckprice/#{user1.id}"
+      #assert
+      # puts response.body
+
+      # 'deck_price' Spec testing needs more work
+
+      byebug
+      deck_price_response = JSON.parse(response.body)
+      expect(response).to have_http_status(200)
+      expect(deck_price_response).to eq 899.99
+
+    end
+  end
+
 end
