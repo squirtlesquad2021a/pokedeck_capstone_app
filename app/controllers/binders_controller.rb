@@ -39,6 +39,10 @@ class BindersController < ApplicationController
       Binder.create(user_id: params[:user_id], card_id: card_id, quantity: 1, favorite: false)
     end
 
+    user = User.find(params[:user_id])
+    user.timestamp_of_last_daily_card = Time.now
+    user.save
+
     # return the user's cards
     render json: User.find(params[:user_id]).cards
   end
@@ -62,18 +66,22 @@ class BindersController < ApplicationController
       binder = Binder.create(user_id: params[:user_id], card_id: random_card, quantity: 1, favorite: false)
     end
 
+    user = User.find(params[:user_id])
+    user.timestamp_of_last_daily_card = Time.now
+    user.save
+
     render json: binder
 
   end
 
-  
+
   def deck_price
     # create a variable to hold the sum
     sum = 0
 
     # query for all of the user's binders
     binders = User.find(params[:user_id]).binders
-    
+
     # iterate through the user's binders to calculate the subtotal of that binder
     binders.each do |binder|
       binder_price = binder.quantity * binder.card.price
@@ -84,7 +92,7 @@ class BindersController < ApplicationController
     # return the sum
     render json: sum.round(2)
   end
-  
+
   def rankings
   end
 
