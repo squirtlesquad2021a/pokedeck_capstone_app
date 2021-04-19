@@ -30,11 +30,12 @@
   },
   
   "jest": {
-    "roots": ["app/javascript/components"]
-  },
-  "moduleNameMapper": {
-    "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/app/javascript/components/__mocks__/mockStyles.js"
+    "roots": ["app/javascript/components"],
+    "moduleNameMapper": {
+      "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/app/javascript/components/__mocks__/mockStyles.js"
+    }
   }
+  
 }
 
 

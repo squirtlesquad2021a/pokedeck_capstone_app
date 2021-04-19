@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import mockCards from './mockData.js'
 import mockBinders from './mockBinderSleeves.js'
 import mockUsers from './mockUsers.js'
+import mockRankings from'./mockRankings'
 import AboutUs from './pages/AboutUs'
 import CardShow from './pages/CardShow'
 import ClaimBooster from './pages/ClaimBooster'
@@ -26,7 +27,8 @@ class App extends Component{
     this.state = {
       cards: mockCards,
       bindersleeves: mockBinders,
-      users: mockUsers
+      users: mockUsers,
+      rankings: mockRankings
     }
   }
 
@@ -55,7 +57,8 @@ class App extends Component{
           <Route exact path = "/" component={ Splash } />
           <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
           <Route path = "/aboutus" component={ AboutUs } />
-          <Route path = "/rankings" component={ Rankings } />
+          <Route path = "/rankings" render= { (props)=> <Rankings rankings={ this.state.rankings }
+          /> } />
           <Route path="/cardshow/:id" render = {(props) => {
             const id = +props.match.params.id
             const card = this.state.cards.find(card => card.id === id)

@@ -12,6 +12,8 @@ render() {
         <div className= "square">
             <a href="/home"><img src= {PokeLogo} alt="pokedeckLogo" className= "logo-splash" /></a>
         </div>    
+        <div className= "orangeSquare">
+        </div>
         </div>
         </>
     )
