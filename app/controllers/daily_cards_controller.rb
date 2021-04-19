@@ -8,7 +8,8 @@ class DailyCardsController < ApplicationController
     end
 
     time_elapsed = current_time - last_card
-    if time_elapsed >= 86400
+    seconds_in_a_day = 86400
+    if time_elapsed >= seconds_in_a_day
       eligible = true
     else
       eligible = false
