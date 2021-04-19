@@ -11,7 +11,7 @@ class RankingsController < ApplicationController
         users.each do |user|
             # create a hash to store the user's information
             user_info = {}
-            
+
             # grab each user's username
             user_info[:username] = user.username
 
@@ -24,15 +24,15 @@ class RankingsController < ApplicationController
 
             # query for all of the user's binders
             binders = user.binders
-            
+
             # iterate through the user's binders to calculate the subtotal of that binder
             binders.each do |binder|
                 binder_price = binder.quantity * binder.card.price
                 # add that binder's subtotal to the sum
                 sum += binder_price
             end
-            
-            user_info[:deck_price] = sum
+
+            user_info[:deck_price] = sum.round(2)
 
             # push 'user_info' to the 'ranking_info' array
             ranking_info.push(user_info)
