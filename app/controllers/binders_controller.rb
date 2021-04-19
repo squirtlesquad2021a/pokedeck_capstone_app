@@ -93,9 +93,6 @@ class BindersController < ApplicationController
     render json: sum.round(2)
   end
 
-  def rankings
-  end
-
   private
   def binder_params
       params.require(:binder).permit(:user_id, :card_id, :quantity, :favorite)
