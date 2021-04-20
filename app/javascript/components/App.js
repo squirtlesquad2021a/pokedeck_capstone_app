@@ -25,7 +25,7 @@ class App extends Component{
     super(props)
     this.state = {
       cards: mockCards,
-      bindersleeves: mockBinders,
+      bindersleeves: [],
       users: mockUsers,
       rankings: mockRankings,
       isUserEligible: false
@@ -36,6 +36,20 @@ class App extends Component{
     if (this.props.current_user) {
       this.dailyCardEligibilityCheck(this.props.current_user.id)
     }
+    this.binderIndex()
+  }
+
+  binderIndex = () => {
+    fetch("http://127.0.0.1:3000/binders")
+    .then(response => {
+      return response.json()
+    })
+    .then(bindersleevesArray => {
+      this.setState({ bindersleeves: bindersleevesArray })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
   }
 
   dailyCardEligibilityCheck = (user_id) => {
@@ -70,7 +84,7 @@ class App extends Component{
     .then(payload => {
       console.log('payload', payload)
       this.setState({ isUserEligible: false })
-      // this.apartmentIndex()
+      this.binderIndex()
     })
     .catch(errors => {
       console.log("create errors:", errors)
