@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component, useState, useEffect } from 'react'
+import { NavLink, Redirect } from 'react-router-dom'
 import logo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
 import {
     BrowserRouter as Router,
@@ -20,15 +20,22 @@ import {
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   const {
       logged_in,
       sign_in_route,
       sign_out_route,
-      new_user_route
+      new_user_route,
+      current_user,
+      isUserEligible
     } = props
-    
+
+  const handleSubmit = () => {
+    props.claimDailyCard(current_user.id)
+    setSubmitted(true)
+  }
 
   return (
     <>
@@ -46,23 +53,34 @@ const Header = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             
-              { logged_in && 
-              <>
+            { logged_in && isUserEligible &&
+            <>
               <NavItem>
-               <Button color="primary" className= "claimButtons">Claim Card</Button>{' '}
-               </NavItem>
-               <NavItem>
-               <Button color="warning" className= "claimButtons">Free Booster pack</Button>{' '}
-               </NavItem>  
-                <NavItem>
-                  <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
-                </NavItem>
-
-                <NavItem>
-                  <NavLink to="/rankings" className="nav-link devise-text">See Rankings</NavLink>
-                </NavItem>
-              </>
+                <Button color="primary" className= "claimButtons" onClick={ handleSubmit }>Claim Card</Button>{' '}
+              </NavItem>
+            </>
             }
+
+            { logged_in &&
+            <>
+              <NavItem>
+                <Button color="warning" className= "claimButtons">Free Booster pack</Button>{' '}
+              </NavItem>  
+            </>
+            }
+
+            { logged_in &&
+            <>
+              <NavItem>
+                <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/rankings" className="nav-link devise-text">See Rankings</NavLink>
+              </NavItem>
+            </>
+            }
+
           </Nav>
           <Nav>
             { logged_in &&
@@ -85,6 +103,8 @@ const Header = (props) => {
         </Collapse>
       {/* </Container> */}
     </Navbar>
+
+    { submitted && <Redirect to="/usercardindex" /> }
   </>
   );
   }

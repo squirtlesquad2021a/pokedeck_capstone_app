@@ -25,12 +25,71 @@ class App extends Component{
     super(props)
     this.state = {
       cards: mockCards,
-      bindersleeves: mockBinders,
+      bindersleeves: [],
       users: mockUsers,
-      rankings: mockRankings
+      rankings: mockRankings,
+      isUserEligible: false
     }
   }
 
+  componentDidMount(){
+    if (this.props.current_user) {
+      this.dailyCardEligibilityCheck(this.props.current_user.id)
+    }
+    this.binderIndex()
+  }
+
+  binderIndex = () => {
+    fetch("http://127.0.0.1:3000/binders")
+    .then(response => {
+      return response.json()
+    })
+    .then(bindersleevesArray => {
+      this.setState({ bindersleeves: bindersleevesArray })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
+  }
+
+  dailyCardEligibilityCheck = (user_id) => {
+    fetch(`http://127.0.0.1:3000/eligibility_check/${user_id}`)
+    .then(response => {
+      return response.json()
+    })
+    .then(isEligible => {
+      console.log('dailyCardEligibilityCheck', isEligible)
+      this.setState({ isUserEligible: isEligible })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
+  }
+
+  claimDailyCard = (user_id) => {
+    fetch(`http://127.0.0.1:3000/dailycard/${user_id}`, {
+      // body: JSON.stringify(newApartment),
+      // headers: {
+      //   "Content-Type": "application/json"
+      // },
+      method: "POST"
+    })
+    .then(response => {
+      console.log('response', response)
+      if(response.status === 422){
+        alert("Something is wrong with your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      console.log('payload', payload)
+      this.setState({ isUserEligible: false })
+      this.binderIndex()
+    })
+    .catch(errors => {
+      console.log("create errors:", errors)
+    })
+  }
 
   render () {
     const {
@@ -50,7 +109,11 @@ class App extends Component{
           <Header logged_in={logged_in}
             sign_in_route={sign_in_route}
             sign_out_route={sign_out_route}
-            new_user_route={new_user_route}/>
+            new_user_route={new_user_route}
+            current_user={current_user}
+            isUserEligible={this.state.isUserEligible}
+            claimDailyCard={this.claimDailyCard}
+          />
          } 
         <Switch>
           <Route exact path = "/" component={ Splash } />

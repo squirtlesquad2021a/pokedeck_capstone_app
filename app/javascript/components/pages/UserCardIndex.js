@@ -20,7 +20,7 @@ class UserCardIndex extends Component {
                             let { card_data } = binder 
                             return (
                                 <Card key={card_data.id}>
-                                    <NavLink to={`/bindershow/${card_data.id}`}>
+                                    <NavLink to={`/bindershow/${binder.id}`}>
                                         <CardImg top width="100%" src={card_data.image} alt="Card image" />       
                                     </NavLink>
                                 </Card>
