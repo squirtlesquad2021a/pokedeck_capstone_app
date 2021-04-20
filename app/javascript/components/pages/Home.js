@@ -10,7 +10,7 @@ import {
 
 class Home extends Component{
 render() {
-    console.log(this.props.cards)
+    // console.log(this.props.cards)
     const {
         logged_in,
         sign_in_route,

@@ -14,6 +14,8 @@ const AboutUs = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
+    <>
+    <p>this is a paragragh </p>
     <div>
       <Button color="danger" onClick={toggle}><img src={ ProfilePic } /></Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
@@ -67,7 +69,7 @@ const AboutUs = (props) => {
         </ModalFooter>
       </Modal>
     </div>
-    
+    </>
   );
 }
 
