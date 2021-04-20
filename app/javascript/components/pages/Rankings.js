@@ -14,10 +14,10 @@ class Rankings extends Component{
     <Table hover>
       <thead>
         <tr>
-          <th>#</th>
-          <th>Username</th>
-          <th>Deck Price</th>
-          <th>Most Valuable Card</th>
+          <th className="rankingsColumnText">#</th>
+          <th className="rankingsColumnText">Username</th>
+          <th className="rankingsColumnText">Deck Price</th>
+          <th className="rankingsColumnText">Most Valuable Card</th>
         </tr>
       </thead>
       <tbody>

@@ -21,11 +21,12 @@ render() {
       
     return(
         <>
+        <h2 className="center">Browse cards</h2>
         
         <CardDeck>
         {this.props.cards && this.props.cards.map((card, index) => {
               return (
-            <Card body key = {index}>
+            <Card key = {index}>
                 <NavLink to={`/cardshow/${card.id}`}>
                 <CardImg top width="100%" src={card.image} alt="Card image" />
                 </NavLink>
