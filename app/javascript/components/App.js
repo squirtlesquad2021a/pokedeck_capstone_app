@@ -26,8 +26,8 @@ class App extends Component{
     this.state = {
       cards: [],
       bindersleeves: [],
-      users: mockUsers,
-      rankings: mockRankings,
+      // users: [],
+      rankings: [],
       isUserEligible: false
     }
   }
@@ -38,6 +38,7 @@ class App extends Component{
     }
     this.binderIndex()
     this.cardIndex()
+    this.rankings()
   }
 
   binderIndex = () => {
@@ -120,7 +121,18 @@ class App extends Component{
       console.log("index errors:", errors)
     })
   }
-
+  rankings = () => {
+    fetch("http://127.0.0.1:3000/rankings")
+    .then(response => {
+      return response.json()
+    })
+    .then(rankingsArray => {
+      this.setState({ rankings: rankingsArray })
+    })
+    .catch(errors => {
+      console.log("rankings errors:", errors)
+    })
+  }
   render () {
     const {
       logged_in,
