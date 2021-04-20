@@ -15,6 +15,7 @@ import {
   Nav,
   NavItem, 
   Button,
+  UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 
 const Header = (props) => {
@@ -31,6 +32,7 @@ const Header = (props) => {
 
   return (
     <>
+    
     <div className="header-main"></div>
         <Navbar color="secondary" dark expand="md">
         {/* <Container> */}
@@ -47,7 +49,10 @@ const Header = (props) => {
               { logged_in && 
               <>
               <NavItem>
-               <Button outline color="primary">Claim Card</Button>{' '}
+               <Button color="primary" className= "claimButtons">Claim Card</Button>{' '}
+               </NavItem>
+               <NavItem>
+               <Button color="warning" className= "claimButtons">Free Booster pack</Button>{' '}
                </NavItem>  
                 <NavItem>
                   <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
@@ -85,3 +90,18 @@ const Header = (props) => {
   }
  
 export default Header;
+
+
+
+<UncontrolledDropdown>
+      <DropdownToggle caret>
+        Dropdown
+      </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem header>Header</DropdownItem>
+        <DropdownItem disabled>Action</DropdownItem>
+        <DropdownItem>Another Action</DropdownItem>
+        <DropdownItem divider />
+        <DropdownItem>Another Action</DropdownItem>
+      </DropdownMenu>
+    </UncontrolledDropdown>
