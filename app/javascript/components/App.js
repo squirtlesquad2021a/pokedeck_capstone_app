@@ -24,10 +24,10 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      cards: mockCards,
+      cards: [],
       bindersleeves: [],
-      users: mockUsers,
-      rankings: mockRankings,
+      // users: [],
+      rankings: [],
       isUserEligible: false
     }
   }
@@ -37,6 +37,8 @@ class App extends Component{
       this.dailyCardEligibilityCheck(this.props.current_user.id)
     }
     this.binderIndex()
+    this.cardIndex()
+    this.rankings()
   }
 
   binderIndex = () => {
@@ -107,6 +109,30 @@ class App extends Component{
     })
   }
 
+  cardIndex = () => {
+    fetch("http://127.0.0.1:3000/cards")
+    .then(response => {
+      return response.json()
+    })
+    .then(cardsArray => {
+      this.setState({ cards: cardsArray })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
+  }
+  rankings = () => {
+    fetch("http://127.0.0.1:3000/rankings")
+    .then(response => {
+      return response.json()
+    })
+    .then(rankingsArray => {
+      this.setState({ rankings: rankingsArray })
+    })
+    .catch(errors => {
+      console.log("rankings errors:", errors)
+    })
+  }
   render () {
     const {
       logged_in,
