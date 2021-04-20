@@ -29,13 +29,29 @@ const Header = (props) => {
       sign_out_route,
       new_user_route,
       current_user,
-      isUserEligible
+      isUserEligible,
+      bindersleeves
     } = props
 
   const handleSubmit = () => {
     props.claimDailyCard(current_user.id)
     setSubmitted(true)
   }
+
+  const handleBooster = () => {
+    props.claimBoosterPack(current_user.id)
+    setSubmitted(true)
+  }
+
+  let usersBinders = []
+
+  if (current_user) {
+    usersBinders = bindersleeves.filter(binder => {
+      return binder.user_id === current_user.id
+    })
+  }
+
+  console.log( usersBinders )
 
   return (
     <>
@@ -61,10 +77,10 @@ const Header = (props) => {
             </>
             }
 
-            { logged_in &&
+            { logged_in && usersBinders.length === 0 &&
             <>
               <NavItem>
-                <Button color="warning" className= "claimButtons">Free Booster pack</Button>{' '}
+                <Button color="warning" className= "claimButtons" onClick={ handleBooster }>Free Booster pack</Button>{' '}
               </NavItem>  
             </>
             }
