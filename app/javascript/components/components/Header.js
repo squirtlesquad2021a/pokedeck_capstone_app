@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import logo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
 import {
     BrowserRouter as Router,
@@ -20,6 +20,7 @@ import {
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   const {
@@ -30,6 +31,11 @@ const Header = (props) => {
       current_user,
       isUserEligible
     } = props
+
+  const handleSubmit = () => {
+    props.claimDailyCard(current_user.id)
+    setSubmitted(true)
+  }
 
   return (
     <>
@@ -50,7 +56,7 @@ const Header = (props) => {
             { logged_in && isUserEligible &&
             <>
               <NavItem>
-                <Button color="primary" className= "claimButtons">Claim Card</Button>{' '}
+                <Button color="primary" className= "claimButtons" onClick={ handleSubmit }>Claim Card</Button>{' '}
               </NavItem>
             </>
             }
@@ -97,6 +103,8 @@ const Header = (props) => {
         </Collapse>
       {/* </Container> */}
     </Navbar>
+
+    { submitted && <Redirect to="/usercardindex" /> }
   </>
   );
   }

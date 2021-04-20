@@ -52,6 +52,31 @@ class App extends Component{
     })
   }
 
+  claimDailyCard = (user_id) => {
+    fetch(`http://127.0.0.1:3000/dailycard/${user_id}`, {
+      // body: JSON.stringify(newApartment),
+      // headers: {
+      //   "Content-Type": "application/json"
+      // },
+      method: "POST"
+    })
+    .then(response => {
+      console.log('response', response)
+      if(response.status === 422){
+        alert("Something is wrong with your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      console.log('payload', payload)
+      this.setState({ isUserEligible: false })
+      // this.apartmentIndex()
+    })
+    .catch(errors => {
+      console.log("create errors:", errors)
+    })
+  }
+
   render () {
     const {
       logged_in,
@@ -73,6 +98,7 @@ class App extends Component{
             new_user_route={new_user_route}
             current_user={current_user}
             isUserEligible={this.state.isUserEligible}
+            claimDailyCard={this.claimDailyCard}
           />
          } 
         <Switch>
