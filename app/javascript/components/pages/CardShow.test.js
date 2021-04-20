@@ -7,7 +7,7 @@ import Footer from "./components/Footer.js"
 
 Enzyme.configure({ adapter: new Adapter()})
 
-describe('When App renders', () => {
+describe('When Card renders', () => {
     let renderedApp;
     beforeEach(() => {
       renderedApp = shallow(<App />);

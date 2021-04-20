@@ -1,14 +1,20 @@
-import App from './App,js';
+import AboutUs from './AboutUs';
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import Header from "./components/Header.js"
-import Footer from "./components/Footer.js"
 
 Enzyme.configure({ adapter: new Adapter()})
 
-describe('When App renders', () => {
-    let renderedApp;
+describe('When AboutUs renders', () => {
+    let renderedAboutUs;
     beforeEach(() => {
-      renderedApp = shallow(<App />);
+      renderedAboutUs = shallow(<AboutUs />);
     });
+    it('displays a paragragh and 5 modals', () =>{
+      const paragragh = renderedAboutUs.find('p')
+      const modals = renderedAboutUs.find('Modal')
+      expect (paragragh.length).toEqual(1)
+      expect (modals.length).toEqual(5)
+    })
+  })
+    
