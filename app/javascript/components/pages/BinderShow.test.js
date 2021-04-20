@@ -8,8 +8,27 @@ Enzyme.configure({ adapter: new Adapter()})
 
 describe('When BinderShow renders', () => {
     let renderedBinderShow;
+    let binder = {
+      id:1,
+      user_id:1,
+      card_id:1,
+      quantity:1,
+      favorites:true,
+      card_data:{
+        id: 1,
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      }}
+  
     beforeEach(() => {
-      renderedBinderShow = shallow(<BinderShow />);
+      renderedBinderShow = shallow(<BinderShow binder={binder}/>);
       console.log(renderedBinderShow)
     });
     it('display card information', () =>{

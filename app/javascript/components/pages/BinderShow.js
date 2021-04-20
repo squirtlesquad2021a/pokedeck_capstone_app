@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
 
 
 class BinderShow extends Component {
@@ -9,6 +14,8 @@ class BinderShow extends Component {
 
     return (
       <>
+        { card &&
+        <>
         <div className = "center"> 
             <h1>{card.name}</h1>
             <br></br>
@@ -19,6 +26,17 @@ class BinderShow extends Component {
             <div>Price: {card.price}</div>
             <div>Quantity: {this.props.binder.quantity}</div>
         </div>
+        </>
+        }
+        { !card &&
+        <>
+          <Router>
+            <Switch>
+              <Route component={ NotFound }/>
+            </Switch>
+          </Router>
+          </>
+        }
       </>
     )
   }
