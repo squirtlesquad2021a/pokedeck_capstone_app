@@ -27,10 +27,30 @@ class App extends Component{
       cards: mockCards,
       bindersleeves: mockBinders,
       users: mockUsers,
-      rankings: mockRankings
+      rankings: mockRankings,
+      isUserEligible: false
     }
   }
 
+  componentDidMount(){
+    if (this.props.current_user) {
+      this.dailyCardEligibilityCheck(this.props.current_user.id)
+    }
+  }
+
+  dailyCardEligibilityCheck = (user_id) => {
+    fetch(`http://127.0.0.1:3000/eligibility_check/${user_id}`)
+    .then(response => {
+      return response.json()
+    })
+    .then(isEligible => {
+      console.log('dailyCardEligibilityCheck', isEligible)
+      this.setState({ isUserEligible: isEligible })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
+  }
 
   render () {
     const {
@@ -50,7 +70,10 @@ class App extends Component{
           <Header logged_in={logged_in}
             sign_in_route={sign_in_route}
             sign_out_route={sign_out_route}
-            new_user_route={new_user_route}/>
+            new_user_route={new_user_route}
+            current_user={current_user}
+            isUserEligible={this.state.isUserEligible}
+          />
          } 
         <Switch>
           <Route exact path = "/" component={ Splash } />

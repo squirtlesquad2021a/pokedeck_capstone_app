@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../../assets/images/PokeLogo1-1-removebg-preview.png'
 import {
@@ -26,9 +26,10 @@ const Header = (props) => {
       logged_in,
       sign_in_route,
       sign_out_route,
-      new_user_route
+      new_user_route,
+      current_user,
+      isUserEligible
     } = props
-    
 
   return (
     <>
@@ -46,23 +47,34 @@ const Header = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             
-              { logged_in && 
-              <>
+            { logged_in && isUserEligible &&
+            <>
               <NavItem>
-               <Button color="primary" className= "claimButtons">Claim Card</Button>{' '}
-               </NavItem>
-               <NavItem>
-               <Button color="warning" className= "claimButtons">Free Booster pack</Button>{' '}
-               </NavItem>  
-                <NavItem>
-                  <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
-                </NavItem>
-
-                <NavItem>
-                  <NavLink to="/rankings" className="nav-link devise-text">See Rankings</NavLink>
-                </NavItem>
-              </>
+                <Button color="primary" className= "claimButtons">Claim Card</Button>{' '}
+              </NavItem>
+            </>
             }
+
+            { logged_in &&
+            <>
+              <NavItem>
+                <Button color="warning" className= "claimButtons">Free Booster pack</Button>{' '}
+              </NavItem>  
+            </>
+            }
+
+            { logged_in &&
+            <>
+              <NavItem>
+                <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/rankings" className="nav-link devise-text">See Rankings</NavLink>
+              </NavItem>
+            </>
+            }
+
           </Nav>
           <Nav>
             { logged_in &&
