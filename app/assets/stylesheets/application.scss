@@ -100,3 +100,15 @@
 .rankingsColumnText {
     color:brown
 }
+
+.cardBox {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards {
+    display: inline-flex;
+    margin-right:1.5em;
+   
+}

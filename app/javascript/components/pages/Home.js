@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import {
     Card, Button, CardImg, CardTitle, CardText, CardDeck,
-    CardSubtitle, CardBody
+    CardSubtitle, CardBody, Container, Row, Col
   } from 'reactstrap';
 
 
@@ -22,17 +22,24 @@ render() {
     return(
         <>
         <h2 className="center">Browse cards</h2>
-        
-        <CardDeck>
+        <div className="cardBox" >
+        <Row xs="4">
+        {/* <CardDeck> */}
         {this.props.cards && this.props.cards.map((card, index) => {
-              return (
-            <Card key = {index}>
-                <NavLink to={`/cardshow/${card.id}`}>
-                <CardImg top width="100%" src={card.image} alt="Card image" />
-                </NavLink>
-            </Card>
+            return (
+            <Col>
+              <Card key = {index} className="cards">
+                  <NavLink to={`/cardshow/${card.id}`}>
+                  <CardImg top width="100%" src={card.image} alt="Card image" />
+                  </NavLink>
+              </Card>
+              <br></br>
+              <br></br>
+            </Col>
         )})}
-        </CardDeck>
+        </Row>
+        {/* </CardDeck> */}
+        </div>
         </>   
     )
     }}
