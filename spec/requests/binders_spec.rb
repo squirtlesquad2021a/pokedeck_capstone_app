@@ -125,11 +125,6 @@ RSpec.describe "Binders", type: :request do
       #act
       get "/deckprice/#{user1.id}"
       #assert
-      # puts response.body
-
-      # 'deck_price' Spec testing needs more work
-
-      byebug
       deck_price_response = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(deck_price_response).to eq 899.99
