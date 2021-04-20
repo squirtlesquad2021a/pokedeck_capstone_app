@@ -1,5 +1,7 @@
 class DailyCardsController < ApplicationController
 
+  # before_action :authenticate_user!
+
   def eligibility_check
     current_time = Time.now
     last_card = User.find(params[:user_id]).timestamp_of_last_daily_card
