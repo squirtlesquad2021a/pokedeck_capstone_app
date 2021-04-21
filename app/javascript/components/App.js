@@ -70,7 +70,7 @@ class App extends Component{
   }
 
   claimDailyCard = (user_id) => {
-    fetch(`http://127.0.0.1:3000/dailycard/${user_id}`, {
+    fetch(`http://127.0.0.1:3000/dailycard/`, {
       method: "POST"
     })
     .then(response => {

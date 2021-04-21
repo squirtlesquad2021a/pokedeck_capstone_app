@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :cards
   devise_for :users
   post '/boosterpack/' => 'binders#booster_pack'
-  post '/dailycard/:user_id' => 'binders#daily_card'
+  post '/dailycard/' => 'binders#daily_card'
   get '/deckprice/:user_id' => 'binders#deck_price'
   get '/eligibility_check/' => 'daily_cards#eligibility_check'
   get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
