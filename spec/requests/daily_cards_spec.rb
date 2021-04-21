@@ -10,10 +10,10 @@ RSpec.describe "DailyCards", type: :request do
           username:"userone"
         )
 
-        # sign_in(user1)
+        sign_in(user1)
 
         #act
-        get "/eligibility_check/#{user1.id}"
+        get "/eligibility_check/"
         #assert
         response_body = JSON.parse(response.body)
         expect(response).to have_http_status(200)
@@ -28,8 +28,11 @@ RSpec.describe "DailyCards", type: :request do
           username:"userone",
           timestamp_of_last_daily_card: 1.day.ago
         )
+
+        sign_in(user1)
+
         #act
-        get "/eligibility_check/#{user1.id}"
+        get "/eligibility_check/"
         #assert
         response_body = JSON.parse(response.body)
         expect(response).to have_http_status(200)
