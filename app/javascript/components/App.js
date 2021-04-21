@@ -84,6 +84,7 @@ class App extends Component{
       console.log('payload', payload)
       this.setState({ isUserEligible: false })
       this.binderIndex()
+      this.rankings()
     })
     .catch(errors => {
       console.log("create errors:", errors)
@@ -104,6 +105,7 @@ class App extends Component{
     .then(payload => {
       console.log('payload', payload)
       this.binderIndex()
+      this.rankings()
     })
     .catch(errors => {
       console.log("create errors:", errors)
