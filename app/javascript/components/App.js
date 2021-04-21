@@ -56,7 +56,7 @@ class App extends Component{
   }
 
   dailyCardEligibilityCheck = (user_id) => {
-    fetch(`http://127.0.0.1:3000/eligibility_check/${user_id}`)
+    fetch(`http://127.0.0.1:3000/eligibility_check/`)
     .then(response => {
       return response.json()
     })
@@ -70,7 +70,7 @@ class App extends Component{
   }
 
   claimDailyCard = (user_id) => {
-    fetch(`http://127.0.0.1:3000/dailycard/${user_id}`, {
+    fetch(`http://127.0.0.1:3000/dailycard/`, {
       method: "POST"
     })
     .then(response => {
@@ -92,7 +92,7 @@ class App extends Component{
   }
 
   claimBoosterPack = (user_id) => {
-    fetch(`http://127.0.0.1:3000/boosterpack/${user_id}`, {
+    fetch(`http://127.0.0.1:3000/boosterpack/`, {
       method: "POST"
     })
     .then(response => {

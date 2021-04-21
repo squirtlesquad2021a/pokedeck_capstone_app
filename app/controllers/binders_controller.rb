@@ -36,15 +36,15 @@ class BindersController < ApplicationController
 
     # create the 10 new Pokemon binders
     pokemon_card_numbers.each do |card_id|
-      Binder.create(user_id: params[:user_id], card_id: card_id, quantity: 1, favorite: false)
+      Binder.create(user_id: current_user.id, card_id: card_id, quantity: 1, favorite: false)
     end
 
-    user = User.find(params[:user_id])
+    user = current_user
     user.timestamp_of_last_daily_card = Time.now
     user.save
 
     # return the user's cards
-    render json: User.find(params[:user_id]).cards
+    render json: current_user.cards
   end
 
   def daily_card
@@ -52,7 +52,7 @@ class BindersController < ApplicationController
     random_card = rand(102)+1
 
     # do a query to check for any binder(s) that exist for the user and the random card
-    binders = Binder.where(["user_id = '%i' and card_id = '%i'", params[:user_id], random_card])
+    binders = Binder.where(["user_id = '%i' and card_id = '%i'", current_user.id, random_card])
 
     # check if the user already owns the card
     if binders.length > 0
@@ -63,10 +63,10 @@ class BindersController < ApplicationController
 
     # else, create a new binder
     else
-      binder = Binder.create(user_id: params[:user_id], card_id: random_card, quantity: 1, favorite: false)
+      binder = Binder.create(user_id: current_user.id, card_id: random_card, quantity: 1, favorite: false)
     end
 
-    user = User.find(params[:user_id])
+    user = current_user
     user.timestamp_of_last_daily_card = Time.now
     user.save
 
@@ -91,6 +91,12 @@ class BindersController < ApplicationController
 
     # return the sum
     render json: sum.round(2)
+
+    #user info = {
+    #   deck_price: $XX.XX
+    #   deck_size: number
+    #   ranking: number
+    # }
   end
 
   private
