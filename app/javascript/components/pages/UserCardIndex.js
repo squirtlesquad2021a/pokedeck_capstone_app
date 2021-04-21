@@ -16,11 +16,11 @@ class UserCardIndex extends Component {
                 <h2 className="center">These are your cards</h2>
                 <Row xs="4">
 
-                        {this.props.usersBinders && this.props.usersBinders.map(binder => {
+                        {this.props.usersBinders && this.props.usersBinders.map((binder, index) => {
                             let { card_data } = binder 
                             return (
-                            <Col>
-                                <Card key={card_data.id}>
+                            <Col key= {index}>
+                                <Card key= {index}>
                                     <NavLink to={`/bindershow/${binder.id}`}>
                                         <CardImg top width="100%" src={card_data.image} alt="Card image" />       
                                     </NavLink>

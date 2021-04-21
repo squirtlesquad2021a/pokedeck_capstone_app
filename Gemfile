@@ -56,3 +56,5 @@ gem "react-rails", "~> 2.6"
 gem "bootstrap", "~> 4.6"
 
 gem 'rest-client', '~> 2.1'
+
+gem 'simplecov', require: false, group: :test
