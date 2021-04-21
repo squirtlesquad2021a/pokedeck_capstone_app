@@ -15,8 +15,13 @@ class RankingsController < ApplicationController
             # grab each user's username
             user_info[:username] = user.username
 
-            # search for each user's most valuable card
-            user_info[:most_valuable_card] = user.cards.order(price: :desc).limit(1).first.name
+            # if the user has cards
+            if user.cards.length > 0
+                # search for each user's most valuable card
+                user_info[:most_valuable_card] = user.cards.order(price: :desc).limit(1).first.name
+            else
+                user_info[:most_valuable_card] = 'No cards'
+            end
 
             # calculate the deck price for each user
             # create a variable to hold the sum
@@ -25,11 +30,14 @@ class RankingsController < ApplicationController
             # query for all of the user's binders
             binders = user.binders
 
-            # iterate through the user's binders to calculate the subtotal of that binder
-            binders.each do |binder|
-                binder_price = binder.quantity * binder.card.price
-                # add that binder's subtotal to the sum
-                sum += binder_price
+            # if the user has binders, then iterate through the binders
+            if binders.length > 0
+                # iterate through the user's binders to calculate the subtotal of that binder
+                binders.each do |binder|
+                    binder_price = binder.quantity * binder.card.price
+                    # add that binder's subtotal to the sum
+                    sum += binder_price
+                end
             end
 
             user_info[:deck_price] = sum.round(2)
