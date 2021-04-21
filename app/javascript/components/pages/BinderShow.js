@@ -2,15 +2,31 @@ import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
 } from 'react-router-dom'
+import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
 
 class BinderShow extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      favorite: props.binder.favorite,
+    }
+  }
+  handleClick = (event) => {
+    // let checked = this.state.favorite
+    this.setState({ favorite: event.target.checked })
+}
+
+  componentDidUpdate(){
+    this.props.updateBinder(this.state, this.props.binder.id)
+  }
+
   render() {
 
     const card = this.props.binder.card_data;
-    
+    console.log(this.state.favorite)
 
     return (
       <>
@@ -25,6 +41,14 @@ class BinderShow extends Component {
             <div>Rarity: {card.rarity}</div>
             <div>Price: {card.price}</div>
             <div>Quantity: {this.props.binder.quantity}</div>
+
+            <Form>
+              <FormGroup>
+                <div>
+                  <CustomInput type="checkbox" checked={this.state.favorite} onChange= {this.handleClick} id="exampleCustomCheckbox" label="Favorite card " />
+                </div>
+              </FormGroup>
+            </Form>
         </div>
         </>
         }

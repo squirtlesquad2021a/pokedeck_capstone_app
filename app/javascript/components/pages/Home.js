@@ -27,7 +27,7 @@ render() {
         {/* <CardDeck> */}
         {this.props.cards && this.props.cards.map((card, index) => {
             return (
-            <Col>
+            <Col key = {index} >
               <Card key = {index} className="cards">
                   <NavLink to={`/cardshow/${card.id}`}>
                   <CardImg top width="100%" src={card.image} alt="Card image" />

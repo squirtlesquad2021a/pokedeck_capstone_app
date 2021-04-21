@@ -30,6 +30,7 @@ class App extends Component{
       rankings: [],
       isUserEligible: false
     }
+
   }
 
   componentDidMount(){
@@ -133,6 +134,31 @@ class App extends Component{
       console.log("rankings errors:", errors)
     })
   }
+
+  updateBinder = (editedBinder, binder_id) => {
+    console.log(editedBinder)
+    fetch(`http://127.0.0.1:3000/binders/${binder_id}`, {
+      body: JSON.stringify(editedBinder),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Something is wrong with your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => {
+      this.binderIndex()
+    })
+    .catch(errors => {
+      console.log("update errors:", errors)
+    })
+  }
+
+  
   render () {
     const {
       logged_in,
@@ -185,7 +211,7 @@ class App extends Component{
           <Route path="/bindershow/:id" render = {(props) => {
             const id = +props.match.params.id
             const binder = this.state.bindersleeves.find(binder => binder.id === id)
-            return (<BinderShow binder={binder}/>)}
+            return (<BinderShow binder={binder} updateBinder={ this.updateBinder }/>)}
             } />
           <Route component={ NotFound }/>
         </Switch>
