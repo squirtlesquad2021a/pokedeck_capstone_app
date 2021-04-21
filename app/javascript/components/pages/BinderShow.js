@@ -19,8 +19,12 @@ class BinderShow extends Component {
     this.setState({ favorite: event.target.checked })
 }
 
-  componentDidUpdate(){
-    this.props.updateBinder(this.state, this.props.binder.id)
+  componentDidUpdate(prevProps, prevState){
+    console.log('prevState favorite', prevState.favorite)
+    console.log('current favorite', this.state.favorite)
+    if (prevState.favorite !== this.state.favorite) {
+      this.props.updateBinder(this.state, this.props.binder.id)
+    }
   }
 
   render() {
