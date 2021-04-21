@@ -13,21 +13,21 @@ users = [
         username: 'guerrero',
         password: 'password'
     },
-    {
-        email: 'fernando@email.com',
-        username: 'fernando',
-        password: 'password'
-    },
-    {
-        email: 'lex@email.com',
-        username: 'lex',
-        password: 'password'
-    },
-    {
-        email: 'allen@email.com',
-        username: 'allen',
-        password: 'password'
-    }
+    # {
+    #     email: 'fernando@email.com',
+    #     username: 'fernando',
+    #     password: 'password'
+    # },
+    # {
+    #     email: 'lex@email.com',
+    #     username: 'lex',
+    #     password: 'password'
+    # },
+    # {
+    #     email: 'allen@email.com',
+    #     username: 'allen',
+    #     password: 'password'
+    # }
 ]
 
 users.each do |attributes|
