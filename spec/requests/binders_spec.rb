@@ -69,6 +69,7 @@ RSpec.describe "Binders", type: :request do
           favorite: false
         }
       }
+
       #Act
       put "/binders/#{binder1.id}", params: update_binder_params
 
@@ -122,6 +123,7 @@ RSpec.describe "Binders", type: :request do
         quantity:1,
         favorite:true
       )
+      sign_in user1
       #act
       get "/deckprice/#{user1.id}"
       #assert
@@ -129,6 +131,168 @@ RSpec.describe "Binders", type: :request do
       expect(response).to have_http_status(200)
       expect(deck_price_response).to eq 899.99
 
+    end
+  end
+
+  describe "POST /boosterpack/" do
+    it "Creates 10 binders" do
+      #arrange
+      user1 =User.create(
+        email:"userone@noemail.com",
+        password:"password",
+        username:"userone"
+      )
+      card1 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card2 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card3 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card4 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card5 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card6 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card7 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card8 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card9 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+      card10 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+
+      sign_in user1
+      #Act
+      post "/boosterpack/"
+
+      #assert
+      boosterpack_response = JSON.parse(response.body)
+      expect(boosterpack_response.length).to eq 10
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe "POST /boosterpack/" do
+    it "Creates 10 binders" do
+      #arrange
+      user1 =User.create(
+        email:"userone@noemail.com",
+        password:"password",
+        username:"userone"
+      )
+      card1 = Card.create(
+        name: "Alakazam",
+        pokemon_type: "Psychic",
+        set_id: "base1",
+        set_name: "Base",
+        set_series: "Base",
+        number: "1",
+        rarity: "Rare Holo",
+        image: "https://images.pokemontcg.io/base1/1_hires.png",
+        price: 250
+      )
+
+      sign_in user1
+      #Act
+      post "/dailycard/"
+
+      #assert
+      daily_card_response = JSON.parse(response.body)
+      expect(daily_card_response['quantity']).to eq 1
+      expect(daily_card_response['favorite']).to eq false
+      expect(response).to have_http_status(200)
     end
   end
 
