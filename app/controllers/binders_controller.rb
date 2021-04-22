@@ -1,4 +1,5 @@
 class BindersController < ApplicationController
+  before_action :authenticate_user!, only:[:booster_pack,:daily_card,:deck_price]
 
   def index
     binders = Binder.all
@@ -28,7 +29,7 @@ class BindersController < ApplicationController
     begin
       # generate a random number from 1 to 102
       # (add 1 because otherwise it gives you numbers from 0-101)
-      number = rand(102)+1
+      number = rand(Card.count)+Card.first.id
       # push the number to the array if it is a unique number
       pokemon_card_numbers.push(number) unless pokemon_card_numbers.include?(number)
     # do this until there are 10 items in the array
@@ -49,7 +50,7 @@ class BindersController < ApplicationController
 
   def daily_card
     # generate a random number for the new card being added to the user's collection
-    random_card = rand(102)+1
+    random_card = rand(Card.count)+Card.first.id
 
     # do a query to check for any binder(s) that exist for the user and the random card
     binders = Binder.where(["user_id = '%i' and card_id = '%i'", current_user.id, random_card])
