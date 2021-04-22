@@ -4,6 +4,7 @@ import PokeLogo from '../../../assets/images/PokeLogo2.1.png'
 
 
 
+
 class Splash extends Component{
 render() {
     return(

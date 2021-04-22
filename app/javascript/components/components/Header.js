@@ -15,13 +15,16 @@ import {
   Nav,
   NavItem, 
   Button,
-  UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem
+  UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem,
+  Toast, ToastBody, ToastHeader
 } from 'reactstrap';
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+
 
   const {
       logged_in,
@@ -30,8 +33,10 @@ const Header = (props) => {
       new_user_route,
       current_user,
       isUserEligible,
-      bindersleeves
+      bindersleeves,
+      userRank
     } = props
+  
 
   const handleSubmit = () => {
     props.claimDailyCard(current_user.id)
@@ -92,7 +97,7 @@ const Header = (props) => {
               </NavItem>
 
               <NavItem>
-                <NavLink to="/rankings" className="nav-link devise-text">See Rankings</NavLink>
+                <NavLink to="/rankings" className="nav-link devise-text">See All Rankings</NavLink>
               </NavItem>
             </>
             }
@@ -100,9 +105,25 @@ const Header = (props) => {
           </Nav>
           <Nav>
             { logged_in &&
+            <>
+            <div className="p-3 my-2 rounded">
+              <Toast >
+                <ToastHeader>
+                  {userRank.userName}
+                </ToastHeader>
+                <ToastBody >
+                  Deck Value:$ {userRank.deck_value}             
+                  <br></br>
+                  Deck Size: {userRank.deck_size}
+                  <br></br>
+                  Your Ranking: {userRank.ranking}
+                </ToastBody>
+              </Toast>
+            </div>
               <NavItem>
                 <a href={ sign_out_route } className="nav-link devise-text">Sign Out</a>
               </NavItem>
+            </>
             }
                 
             { !logged_in &&
@@ -141,3 +162,7 @@ export default Header;
         <DropdownItem>Another Action</DropdownItem>
       </DropdownMenu>
     </UncontrolledDropdown>
+
+
+  
+      

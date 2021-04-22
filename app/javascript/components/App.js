@@ -12,6 +12,7 @@ import Rankings from './pages/Rankings'
 import Splash from './pages/Splash'
 import BinderShow from './pages/BinderShow'
 import UserCardIndex from './pages/UserCardIndex'
+import mockUserRanking from './mockUserRanking.js'
 import {
   BrowserRouter as Router,
   Route,
@@ -28,7 +29,8 @@ class App extends Component{
       bindersleeves: [],
       // users: [],
       rankings: [],
-      isUserEligible: false
+      isUserEligible: false,
+      userRank: mockUserRanking
     }
 
   }
@@ -170,6 +172,9 @@ class App extends Component{
       current_user,
     } = this.props
     const { cards } = this.state
+
+  
+
     return (
       <>
       <Router>
@@ -185,6 +190,7 @@ class App extends Component{
             bindersleeves={this.state.bindersleeves}
             claimDailyCard={this.claimDailyCard}
             claimBoosterPack={this.claimBoosterPack}
+            userRank={this.state.userRank}
           />
          } 
         <Switch>
