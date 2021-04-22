@@ -76,28 +76,65 @@ class BindersController < ApplicationController
   end
 
 
-  def deck_price
-    # create a variable to hold the sum
-    sum = 0
+  def user_statistics
+    # need to return:
+    # 1) username
+    # 2) deck_price
+    # 3) deck_size
+    # 4) ranking
 
-    # query for all of the user's binders
-    binders = User.find(params[:user_id]).binders
+    # rankings (taken from rankings_controller)
+    # get a list of all the users
+    users = User.all
 
-    # iterate through the user's binders to calculate the subtotal of that binder
-    binders.each do |binder|
-      binder_price = binder.quantity * binder.card.price
-      # add that binder's subtotal to the sum
-      sum += binder_price
+    # create an array of user info
+    ranking_info = []
+
+    # iterate through the user array using a '.each'
+    users.each do |user|
+        # create a hash to store the user's information
+        user_stats = {}
+
+        # grab each user's username
+        user_stats[:username] = user.username
+
+        # calculate the deck price for each user
+        # create a variable to hold the sum and the deck_size
+        sum = 0
+        deck_size = 0
+
+        # query for all of the user's binders
+        binders = user.binders
+
+        # if the user has binders, then iterate through the binders
+        if binders.length > 0
+            # iterate through the user's binders to calculate the subtotal of that binder
+            binders.each do |binder|
+                binder_price = binder.quantity * binder.card.price
+                # add that binder's subtotal to the sum
+                sum += binder_price
+                deck_size += binder.quantity
+            end
+        end
+
+        user_stats[:deck_price] = sum.round(2)
+        user_stats[:deck_size] = deck_size
+
+        # push 'user_info' to the 'ranking_info' array
+        ranking_info.push(user_stats)
     end
 
-    # return the sum
-    render json: sum.round(2)
+    # sort the users by deck price
+    # reverse the array
+    # limit the array to 10 items
+    ranking_info_desc = ranking_info.sort_by { |user| user[:deck_price] }.reverse
 
-    #user info = {
-    #   deck_price: $XX.XX
-    #   deck_size: number
-    #   ranking: number
-    # }
+    # grab user ranking from ranking_info_desc array
+    user_stats[:ranking] = ranking_info_desc.index { |user| user.id == current_user.id }
+
+    # return the sum
+    render json: user_stats
+
   end
 
   private

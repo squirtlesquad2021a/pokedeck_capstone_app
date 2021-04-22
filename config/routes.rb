@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   post '/boosterpack/' => 'binders#booster_pack'
   post '/dailycard/' => 'binders#daily_card'
-  get '/deckprice/:user_id' => 'binders#deck_price'
+  get '/userstatistics/' => 'binders#user_statistics'
   get '/eligibility_check/' => 'daily_cards#eligibility_check'
   get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
   root to: 'home#index'
