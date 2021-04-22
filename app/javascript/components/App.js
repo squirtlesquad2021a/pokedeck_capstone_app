@@ -144,12 +144,13 @@ class App extends Component{
   }
 
   userStats = () => {
-    fetch("http://127.0.0.1:3000/userstatistics")
+    fetch("http://127.0.0.1:3000/userstatistics/")
     .then(response => {
+      console.log('response', response)
       return response.json()
     })
     .then(userStatsObj => {
-      console.log(userStatsObj)
+      console.log('userStatsObj', userStatsObj)
       this.setState({ userRank: userStatsObj })
     })
     .catch(errors => {

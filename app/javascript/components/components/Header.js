@@ -109,10 +109,10 @@ const Header = (props) => {
             <div className="p-3 my-2 rounded">
               <Toast >
                 <ToastHeader>
-                  {userRank.userName}
+                  {userRank.username}
                 </ToastHeader>
                 <ToastBody >
-                  Deck Value:$ {userRank.deck_value}             
+                  Deck Value:$ {userRank.deck_price}             
                   <br></br>
                   Deck Size: {userRank.deck_size}
                   <br></br>

@@ -129,11 +129,14 @@ class BindersController < ApplicationController
     # limit the array to 10 items
     ranking_info_desc = ranking_info.sort_by { |user| user[:deck_price] }.reverse
 
-    # grab user ranking from ranking_info_desc array
-    user_stats[:ranking] = ranking_info_desc.index { |user| user.id == current_user.id }
+    # grab individual user_stats object from ranking_info_desc array
+    current_user_stats_index = ranking_info_desc.index { |user| user[:username] == current_user.username }
+
+    current_user_stats = ranking_info_desc[current_user_stats_index]
+    current_user_stats.merge!(ranking: current_user_stats_index + 1)
 
     # return the sum
-    render json: user_stats
+    render json: current_user_stats
 
   end
 
