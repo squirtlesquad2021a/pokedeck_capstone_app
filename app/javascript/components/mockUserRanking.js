@@ -1,6 +1,6 @@
 let userInfo = {
-  userName: "ash",
-  deck_value: 1500.99,
+  username: "ash",
+  deck_price: 1500.99,
   deck_size: 60,
   ranking: 52
 }

@@ -30,7 +30,7 @@ class App extends Component{
       // users: [],
       rankings: [],
       isUserEligible: false,
-      userRank: mockUserRanking
+      userRank: {}
     }
 
   }
@@ -38,6 +38,7 @@ class App extends Component{
   componentDidMount(){
     if (this.props.current_user) {
       this.dailyCardEligibilityCheck(this.props.current_user.id)
+      this.userStats()
     }
     this.binderIndex()
     this.cardIndex()
@@ -87,6 +88,7 @@ class App extends Component{
       this.setState({ isUserEligible: false })
       this.binderIndex()
       this.rankings()
+      this.userStats()
     })
     .catch(errors => {
       console.log("create errors:", errors)
@@ -108,6 +110,7 @@ class App extends Component{
       console.log('payload', payload)
       this.binderIndex()
       this.rankings()
+      this.userStats()
     })
     .catch(errors => {
       console.log("create errors:", errors)
@@ -126,6 +129,7 @@ class App extends Component{
       console.log("index errors:", errors)
     })
   }
+
   rankings = () => {
     fetch("http://127.0.0.1:3000/rankings")
     .then(response => {
@@ -136,6 +140,21 @@ class App extends Component{
     })
     .catch(errors => {
       console.log("rankings errors:", errors)
+    })
+  }
+
+  userStats = () => {
+    fetch("http://127.0.0.1:3000/userstatistics/")
+    .then(response => {
+      console.log('response', response)
+      return response.json()
+    })
+    .then(userStatsObj => {
+      console.log('userStatsObj', userStatsObj)
+      this.setState({ userRank: userStatsObj })
+    })
+    .catch(errors => {
+      console.log("user stats errors:", errors)
     })
   }
 
