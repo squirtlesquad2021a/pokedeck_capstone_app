@@ -33,7 +33,7 @@
     display: flex;
     justify-content: center;
     bottom: 1;
-    position:absolute
+    position:absolute;
 }
 
 .square {
@@ -43,15 +43,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 100%;
 }
 .orangeSquare {
-    height: 4vh;
+    height: 5vh;
     width: 100vw;
     background-color: #F85109;
     display: flex;
     justify-content: center;
     bottom: 0;
-    position:absolute
+    position:absolute;
+    max-width: 100%;
 }
 
 .splash {
@@ -61,6 +63,7 @@
     height: 100vh;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    max-width: 100%;
 
 }
 
@@ -111,4 +114,20 @@
     display: inline-flex;
     margin-right:1.5em;
    
+}
+
+.button {
+    background-color: #4caf4f00; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.playpause{
+    display: flex;
+    align-items: flex-end;
 }

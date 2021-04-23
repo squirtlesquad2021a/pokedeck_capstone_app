@@ -30,18 +30,17 @@ render() {
           <div className= "square">
               <a href="/home"><img src= {PokeLogo} alt="pokedeckLogo" className= "logo-splash" /></a>
           </div>
-
-          <div className= "orangeSquare">
-            <p className="splashInstructions">(Click Logo to Begin)</p>
-          </div>
-        </div>
-        <div>
           <ReactHowler
             src='https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3'
             playing={this.state.playing}
           />
-          <button onClick={ this.handlePlay }>Play</button>
-          <button onClick={ this.handlePause }>Pause</button>
+          <div className="playpause" >
+            <button className= "button" onClick={ this.handlePlay }>Play</button>
+            <button className= "button" onClick={ this.handlePause }>Pause</button>
+          </div>
+          <div className= "orangeSquare">
+            <p className="splashInstructions">(Click Logo to Begin)</p>
+          </div>
         </div>
         </>
     )
