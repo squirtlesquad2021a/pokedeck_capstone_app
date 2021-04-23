@@ -78,7 +78,7 @@
 }
 @font-face {
     font-family: "Pixeboy";
-    src: url("./Pixeboy.ttf") format("truetype");
+    src: font-url("/assets/Pixeboy.ttf") format("truetype");
   }
   body{
       font-family: "Pixeboy";
@@ -113,7 +113,7 @@
 .cards {
     display: inline-flex;
     margin-right:1.5em;
-   
+
 }
 
 .button {
