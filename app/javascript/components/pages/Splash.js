@@ -5,6 +5,24 @@ import ReactHowler from 'react-howler'
 
 
 class Splash extends Component{
+  constructor (props) {
+      super(props)
+
+      this.state = {
+        initialized: false,
+        playing: false
+      }
+      this.handlePlay = this.handlePlay.bind(this)
+      this.handlePause = this.handlePause.bind(this)
+  }
+    handlePlay () {
+      this.setState({ playing: true })
+    }
+
+     handlePause () {
+       this.setState({ playing: false })
+     }
+
 render() {
     return(
         <>
@@ -12,17 +30,20 @@ render() {
           <div className= "square">
               <a href="/home"><img src= {PokeLogo} alt="pokedeckLogo" className= "logo-splash" /></a>
           </div>
-
+          <ReactHowler
+            src='https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3'
+            playing={this.state.playing}
+          />
+          <div className="playpause" >
+            <button className= "button" onClick={ this.handlePlay }>Play</button>
+            <button className= "button" onClick={ this.handlePause }>Pause</button>
+          </div>
           <div className= "orangeSquare">
             <p className="splashInstructions">(Click Logo to Begin)</p>
           </div>
-          <ReactHowler
-          src='./pokedeck_capstone_app/app/javascript/components/pages/TitleScreen.mp3'
-          playing={true}
-          />
         </div>
         </>
     )
-    }
+  }
 }
 export default Splash

@@ -11,10 +11,11 @@ import {
 
 
 class Home extends Component{
+  
+
+  
 render() {
-    // console.log(this.props.cards)
-   
-    
+
     const {
         logged_in,
         sign_in_route,
@@ -33,7 +34,7 @@ render() {
             return (
             <Col key = {index} >
               <Card key = {index} className="cards">
-                  <NavLink to={`/cardshow/${card.id}`} >
+                  <NavLink to={`/cardshow/${card.id}`}>
                   <CardImg top width="100%" src={card.image} alt="Card image" />
                   </NavLink>
               </Card>
@@ -46,6 +47,9 @@ render() {
         </div>
         </>   
     )
-    }}
+    }
+    }
+  
+
 
 export default Home
