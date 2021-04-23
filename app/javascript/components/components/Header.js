@@ -48,15 +48,15 @@ const Header = (props) => {
     setSubmitted(true)
   }
 
-  let usersBinders = []
+  // let usersBinders = []
 
-  if (current_user) {
-    usersBinders = bindersleeves.filter(binder => {
-      return binder.user_id === current_user.id
-    })
-  }
+  // if (current_user) {
+  //   usersBinders = bindersleeves.filter(binder => {
+  //     return binder.user_id === current_user.id
+  //   })
+  // }
 
-  console.log( usersBinders )
+  // console.log( usersBinders )
 
   return (
     <>
@@ -82,7 +82,7 @@ const Header = (props) => {
             </>
             }
 
-            { logged_in && usersBinders.length === 0 &&
+            { logged_in && userRank.deck_size === 0 &&
             <>
               <NavItem>
                 <Button color="warning" className= "claimButtons" onClick={ handleBooster }>Free Booster pack</Button>{' '}
