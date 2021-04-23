@@ -74,6 +74,22 @@ const Header = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             
+            
+
+            { logged_in &&
+            <>
+              <NavItem>
+                <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/rankings" className="nav-link devise-text">See All Rankings</NavLink>
+              </NavItem>
+            </>
+            }
+            <NavItem>
+            <NavLink to="/aboutus" className="nav-link devise-text"> About us</NavLink>
+            </NavItem>
             { logged_in && isUserEligible &&
             <>
               <NavItem>
@@ -89,19 +105,6 @@ const Header = (props) => {
               </NavItem>  
             </>
             }
-
-            { logged_in &&
-            <>
-              <NavItem>
-                <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavLink to="/rankings" className="nav-link devise-text">See All Rankings</NavLink>
-              </NavItem>
-            </>
-            }
-
           </Nav>
           <Nav>
             { logged_in &&

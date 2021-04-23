@@ -1,73 +1,69 @@
 
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Media } from 'reactstrap';
 import ProfilePic from '../../../assets/images/ProfilePic.jpeg'
 
 const AboutUs = (props) => {
-  const {
-    buttonLabel,
-    className
-  } = props;
-
-  const [modal, setModal] = useState(false);
-
-  const toggle = () => setModal(!modal);
 
   return (
     <>
-    <p>this is a paragragh </p>
+    <h3 className="center">Get To Know the Team</h3>
     <div>
-      <Button color="danger" onClick={toggle}><img src={ ProfilePic } /></Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
-      <Button color="danger" onClick={toggle}><img src={ ProfilePic } /></Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
-      <Button color="danger" onClick={toggle}><img src={ ProfilePic } /></Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
-      <Button color="danger" onClick={toggle}><img src={ ProfilePic } /></Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        </Modal>
-        <Button color="danger" onClick={toggle}><img src={ ProfilePic } /></Button>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
+      <Media>
+        <Media left top href="#">
+          <Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif" alt="Charizard" height="100px"/>
+        </Media>
+        <Media body>
+          <Media heading>
+            Guerrero Campos
+          </Media>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.<p><a href="https://www.linkedin.com/in/guerrero-campos/">checkout my LinkedIn</a></p>
+        </Media>
+      </Media>
+      <Media className="mt-1">
+        <Media left middle href="#">
+          <Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif" alt="Squirtle" height="100px"/>
+        </Media>
+        <Media body>
+          <Media heading>
+            Allen Tan
+          </Media>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. <p><a href="https://www.linkedin.com/in/allen-tan/"> Checkout myLinkedIn</a></p>
+        </Media>
+      </Media>
+      <Media className="mt-1">
+        <Media left bottom href="#">
+          <Media object src="https://img.pokemondb.net/sprites/black-white/anim/shiny/haunter.gif" alt="Haunter" height="100px"/>
+        </Media>
+        <Media body>
+          <Media heading>
+            Fernando Romero
+          </Media>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. <p><a href="https://www.linkedin.com/in/fernando-r-odnanref/">Checkout my LinkedIn</a></p>
+        </Media>
+      </Media>
+      <Media className="mt-1">
+        <Media left bottom href="#">
+          <Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/poliwrath.gif" alt="Poliwrath" height="100px"/>
+        </Media>
+        <Media body>
+          <Media heading>
+            Lex Peterson
+          </Media>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. <p><a href="https://www.linkedin.com/in/lex-peterson/">Checkout my LinkedIn</a></p>
+        </Media>
+      </Media>
+      <Media className="mt-1">
+        <Media left bottom href="#">
+          <Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/dragonite.gif" alt="Dragonite" height="100px"/>
+        </Media>
+        <Media body>
+          <Media heading>
+            Erik (Mentor)
+          </Media>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </Media>
+      </Media>
     </div>
     </>
   );

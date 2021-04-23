@@ -42,6 +42,19 @@ render() {
             <p className="splashInstructions">(Click Logo to Begin)</p>
           </div>
         </div>
+        <br></br>
+        <br></br>
+        <h1>Collect Cards Digitally</h1>
+        <img src="https://images.unsplash.com/photo-1613771404721-1f92d799e49f?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
+        <br></br>
+        <br></br>
+        <h1>Climb Up the Ranks</h1>
+        <br></br>
+        <br></br>
+        <h1>Check In Daily For New Cards</h1>
+        <img src="https://p.kindpng.com/picc/s/192-1923263_pokemon-cards-png-pokemon-cards-transparent-png-png.png" />
+        <br></br>
+        <br></br>
         </>
     )
   }
