@@ -46,7 +46,7 @@ class App extends Component{
   }
 
   binderIndex = () => {
-    fetch("http://localhost:3000/binders")
+    fetch("/binders")
     .then(response => {
       return response.json()
     })
@@ -59,7 +59,7 @@ class App extends Component{
   }
 
   dailyCardEligibilityCheck = (user_id) => {
-    fetch(`http://localhost:3000/eligibility_check/`)
+    fetch(`/eligibility_check/`)
     .then(response => {
       return response.json()
     })
@@ -73,7 +73,7 @@ class App extends Component{
   }
 
   claimDailyCard = (user_id) => {
-    fetch(`http://localhost:3000/dailycard/`, {
+    fetch(`/dailycard/`, {
       method: "POST"
     })
     .then(response => {
@@ -96,7 +96,7 @@ class App extends Component{
   }
 
   claimBoosterPack = (user_id) => {
-    fetch(`http://localhost:3000/boosterpack/`, {
+    fetch(`/boosterpack/`, {
       method: "POST"
     })
     .then(response => {
@@ -118,7 +118,7 @@ class App extends Component{
   }
 
   cardIndex = () => {
-    fetch("http://localhost:3000/cards")
+    fetch("/cards")
     .then(response => {
       return response.json()
     })
@@ -131,7 +131,7 @@ class App extends Component{
   }
 
   rankings = () => {
-    fetch("http://localhost:3000/rankings")
+    fetch("/rankings")
     .then(response => {
       return response.json()
     })
@@ -144,7 +144,7 @@ class App extends Component{
   }
 
   userStats = () => {
-    fetch("http://localhost:3000/userstatistics/")
+    fetch("/userstatistics/")
     .then(response => {
       console.log('response', response)
       return response.json()
@@ -160,7 +160,7 @@ class App extends Component{
 
   updateBinder = (editedBinder, binder_id) => {
     console.log(editedBinder)
-    fetch(`http://localhost:3000/binders/${binder_id}`, {
+    fetch(`/binders/${binder_id}`, {
       body: JSON.stringify(editedBinder),
       headers: {
         "Content-Type": "application/json"
