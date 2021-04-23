@@ -46,7 +46,7 @@ class App extends Component{
   }
 
   binderIndex = () => {
-    fetch("http://127.0.0.1:3000/binders")
+    fetch("http://localhost:3000/binders")
     .then(response => {
       return response.json()
     })
@@ -59,7 +59,7 @@ class App extends Component{
   }
 
   dailyCardEligibilityCheck = (user_id) => {
-    fetch(`http://127.0.0.1:3000/eligibility_check/`)
+    fetch(`http://localhost:3000/eligibility_check/`)
     .then(response => {
       return response.json()
     })
@@ -73,7 +73,7 @@ class App extends Component{
   }
 
   claimDailyCard = (user_id) => {
-    fetch(`http://127.0.0.1:3000/dailycard/`, {
+    fetch(`http://localhost:3000/dailycard/`, {
       method: "POST"
     })
     .then(response => {
@@ -96,7 +96,7 @@ class App extends Component{
   }
 
   claimBoosterPack = (user_id) => {
-    fetch(`http://127.0.0.1:3000/boosterpack/`, {
+    fetch(`http://localhost:3000/boosterpack/`, {
       method: "POST"
     })
     .then(response => {
@@ -118,7 +118,7 @@ class App extends Component{
   }
 
   cardIndex = () => {
-    fetch("http://127.0.0.1:3000/cards")
+    fetch("http://localhost:3000/cards")
     .then(response => {
       return response.json()
     })
@@ -131,7 +131,7 @@ class App extends Component{
   }
 
   rankings = () => {
-    fetch("http://127.0.0.1:3000/rankings")
+    fetch("http://localhost:3000/rankings")
     .then(response => {
       return response.json()
     })
@@ -144,7 +144,7 @@ class App extends Component{
   }
 
   userStats = () => {
-    fetch("http://127.0.0.1:3000/userstatistics/")
+    fetch("http://localhost:3000/userstatistics/")
     .then(response => {
       console.log('response', response)
       return response.json()
@@ -160,7 +160,7 @@ class App extends Component{
 
   updateBinder = (editedBinder, binder_id) => {
     console.log(editedBinder)
-    fetch(`http://127.0.0.1:3000/binders/${binder_id}`, {
+    fetch(`http://localhost:3000/binders/${binder_id}`, {
       body: JSON.stringify(editedBinder),
       headers: {
         "Content-Type": "application/json"
@@ -181,7 +181,7 @@ class App extends Component{
     })
   }
 
-  
+
   render () {
     const {
       logged_in,
@@ -192,14 +192,14 @@ class App extends Component{
     } = this.props
     const { cards } = this.state
 
-  
+
 
     return (
       <>
       <Router>
         {
-        !( window.location.pathname === '/') && 
-        
+        !( window.location.pathname === '/') &&
+
           <Header logged_in={logged_in}
             sign_in_route={sign_in_route}
             sign_out_route={sign_out_route}
@@ -211,7 +211,7 @@ class App extends Component{
             claimBoosterPack={this.claimBoosterPack}
             userRank={this.state.userRank}
           />
-         } 
+         }
         <Switch>
           <Route exact path = "/" component={ Splash } />
           <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
@@ -242,10 +242,10 @@ class App extends Component{
             } />
           <Route component={ NotFound }/>
         </Switch>
-        
+
         {/* // !( window.location.pathname === '/') &&  */}
         <Footer />
-        
+
       </Router>
       </>
     );
