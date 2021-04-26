@@ -215,7 +215,7 @@ class App extends Component{
           <Route exact path = "/" component={ Splash } />
           <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
           <Route path = "/aboutus" component={ AboutUs } />
-          <Route path = "/rankings" render= { (props)=> <Rankings rankings={ this.state.rankings }
+          <Route path = "/leaderboard" render= { (props)=> <Rankings rankings={ this.state.rankings }
           /> } />
           <Route path="/cardshow/:id" render = {(props) => {
             const id = +props.match.params.id

@@ -7,6 +7,9 @@ import Footer from './components/Footer.js'
 import Splash from './pages/Splash'
 import { NavItem } from 'reactstrap';
 
+import { MemoryRouter } from 'react-router';
+import { render, screen } from '@testing-library/react';
+// import '@testing-library/jest-dom/extend-expect';
 
 Enzyme.configure({ adapter: new Adapter()})
 
@@ -38,7 +41,7 @@ describe('When App renders', () => {
     beforeEach(() => {
       renderedApp = shallow(<App />);
     });
-    it('has routes to all pages', ()=>{
+    it('routes to root address', ()=>{
       // const renderedRoutes = renderedApp.find('[path = "/"]');
       expect(location.pathname).toEqual('/')
       // expect(location.pathname).toEqual('/home')
@@ -58,4 +61,21 @@ describe('When App renders', () => {
 
     })
 
-    
+  // jest.mock('./pages/Splash');
+
+  // describe("Tests for App Router", () => {
+  //   test("Should render page header and HomePage on default route", () => {
+  //     // Arrange
+  //     Splash.mockImplementation(() => <div>SplashMock</div>);
+  
+  //     // Act
+  //     render(
+  //       <MemoryRouter>
+  //         <App/>
+  //       </MemoryRouter>
+  //     );
+  
+  //     // Assert
+  //     expect(screen.getByText("SplashMock")).toBeInTheDocument();
+  //   });
+  // });

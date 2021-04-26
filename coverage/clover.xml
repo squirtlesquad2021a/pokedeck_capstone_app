@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619463695749" clover="3.2.0">
-  <project timestamp="1619463695749" name="All files">
-    <metrics statements="133" coveredstatements="63" conditionals="36" coveredconditionals="15" methods="65" coveredmethods="24" elements="234" coveredelements="102" complexity="0" loc="133" ncloc="133" packages="3" files="16" classes="16"/>
+<coverage generated="1619477287393" clover="3.2.0">
+  <project timestamp="1619477287394" name="All files">
+    <metrics statements="133" coveredstatements="71" conditionals="36" coveredconditionals="18" methods="65" coveredmethods="28" elements="234" coveredelements="117" complexity="0" loc="133" ncloc="133" packages="3" files="16" classes="16"/>
     <package name="components">
       <metrics statements="86" coveredstatements="31" conditionals="10" coveredconditionals="2" methods="43" coveredmethods="12"/>
       <file name="App.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/App.js">
@@ -133,25 +133,25 @@
       </file>
     </package>
     <package name="components.pages">
-      <metrics statements="33" coveredstatements="22" conditionals="12" coveredconditionals="6" methods="17" coveredmethods="10"/>
+      <metrics statements="33" coveredstatements="30" conditionals="12" coveredconditionals="9" methods="17" coveredmethods="14"/>
       <file name="AboutUs.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/pages/AboutUs.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
       </file>
       <file name="BinderShow.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/pages/BinderShow.js">
-        <metrics statements="11" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
       </file>
       <file name="CardShow.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/pages/CardShow.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -159,10 +159,10 @@
         <line num="9" count="1" type="stmt"/>
       </file>
       <file name="Home.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/pages/Home.js">
-        <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
       </file>
       <file name="NotFound.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/pages/NotFound.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -186,10 +186,10 @@
         <line num="29" count="1" type="stmt"/>
       </file>
       <file name="UserCardIndex.js" path="/Users/learnacademy/Desktop/pokedeck_capstone_app/app/javascript/components/pages/UserCardIndex.js">
-        <metrics statements="3" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
       </file>
     </package>
   </project>

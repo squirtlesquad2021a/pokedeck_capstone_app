@@ -16,6 +16,7 @@ class BinderShow extends Component {
   }
   handleClick = (event) => {
     // let checked = this.state.favorite
+    console.log('handleClick was called')
     this.setState({ favorite: event.target.checked })
 }
 
@@ -30,7 +31,7 @@ class BinderShow extends Component {
   render() {
 
     const card = this.props.binder.card_data;
-    console.log(this.state.favorite)
+    // console.log(this.state.favorite)
 
     return (
       <>
