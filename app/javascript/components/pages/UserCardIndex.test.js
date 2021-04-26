@@ -11,9 +11,9 @@ describe('When UserCardIndex renders', () => {
       renderedUserCardIndex = shallow(<UserCardIndex />);
     });
     it('displays a header and a card deck', () =>{
-      const index = renderedUserCardIndex.find('h2')
-      const theDeck = renderedUserCardIndex.find('CardDeck')
-      expect (index.length).toEqual(1)
+      // const index = renderedUserCardIndex.find('h2')
+      const theDeck = renderedUserCardIndex.find('Row')
+      // expect (index.length).toEqual(1)
       expect (theDeck.length).toEqual(1)
     })
   })

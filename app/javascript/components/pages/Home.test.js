@@ -11,7 +11,7 @@ describe('When Home renders', () => {
       renderedHome = shallow(<Home />);
     })
     it('displays card index', () => {
-      const renderedCard = renderedHome.find('CardDeck');
+      const renderedCard = renderedHome.find('Row');
       expect(renderedCard.length).toEqual(1)
     })
   })

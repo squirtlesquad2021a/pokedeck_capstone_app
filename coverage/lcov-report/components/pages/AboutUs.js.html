@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -139,15 +139,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,87 +209,87 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Media } from 'reactstrap';
 import ProfilePic from '../../../assets/images/ProfilePic.jpeg'
 &nbsp;
 const AboutUs = (props) =&gt; {
-  const {
-    buttonLabel,
-    className
-  } = props;
-&nbsp;
-  const [modal, setModal] = useState(false);
-&nbsp;
-  const toggle = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setModal(!modal);</span>
 &nbsp;
   return (
     &lt;&gt;
-    &lt;p&gt;this is a paragragh &lt;/p&gt;
+    &lt;h3 className="center"&gt;Get To Know the Team&lt;/h3&gt;
     &lt;div&gt;
-      &lt;Button color="danger" onClick={toggle}&gt;&lt;img src={ ProfilePic } /&gt;&lt;/Button&gt;
-      &lt;Modal isOpen={modal} toggle={toggle} className={className}&gt;
-        &lt;ModalHeader toggle={toggle}&gt;Modal title&lt;/ModalHeader&gt;
-        &lt;ModalBody&gt;
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        &lt;/ModalBody&gt;
-        &lt;ModalFooter&gt;
-          &lt;Button color="primary" onClick={toggle}&gt;Do Something&lt;/Button&gt;{' '}
-          &lt;Button color="secondary" onClick={toggle}&gt;Cancel&lt;/Button&gt;
-        &lt;/ModalFooter&gt;
-      &lt;/Modal&gt;
-      &lt;Button color="danger" onClick={toggle}&gt;&lt;img src={ ProfilePic } /&gt;&lt;/Button&gt;
-      &lt;Modal isOpen={modal} toggle={toggle} className={className}&gt;
-        &lt;ModalHeader toggle={toggle}&gt;Modal title&lt;/ModalHeader&gt;
-        &lt;ModalBody&gt;
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        &lt;/ModalBody&gt;
-        &lt;ModalFooter&gt;
-          &lt;Button color="primary" onClick={toggle}&gt;Do Something&lt;/Button&gt;{' '}
-          &lt;Button color="secondary" onClick={toggle}&gt;Cancel&lt;/Button&gt;
-        &lt;/ModalFooter&gt;
-      &lt;/Modal&gt;
-      &lt;Button color="danger" onClick={toggle}&gt;&lt;img src={ ProfilePic } /&gt;&lt;/Button&gt;
-      &lt;Modal isOpen={modal} toggle={toggle} className={className}&gt;
-        &lt;ModalHeader toggle={toggle}&gt;Modal title&lt;/ModalHeader&gt;
-        &lt;ModalBody&gt;
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        &lt;/ModalBody&gt;
-        &lt;ModalFooter&gt;
-          &lt;Button color="primary" onClick={toggle}&gt;Do Something&lt;/Button&gt;{' '}
-          &lt;Button color="secondary" onClick={toggle}&gt;Cancel&lt;/Button&gt;
-        &lt;/ModalFooter&gt;
-      &lt;/Modal&gt;
-      &lt;Button color="danger" onClick={toggle}&gt;&lt;img src={ ProfilePic } /&gt;&lt;/Button&gt;
-      &lt;Modal isOpen={modal} toggle={toggle} className={className}&gt;
-        &lt;ModalHeader toggle={toggle}&gt;Modal title&lt;/ModalHeader&gt;
-        &lt;ModalBody&gt;
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        &lt;/ModalBody&gt;
-        &lt;/Modal&gt;
-        &lt;Button color="danger" onClick={toggle}&gt;&lt;img src={ ProfilePic } /&gt;&lt;/Button&gt;
-      &lt;Modal isOpen={modal} toggle={toggle} className={className}&gt;
-        &lt;ModalHeader toggle={toggle}&gt;Modal title&lt;/ModalHeader&gt;
-        &lt;ModalBody&gt;
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        &lt;/ModalBody&gt;
-        &lt;ModalFooter&gt;
-          &lt;Button color="primary" onClick={toggle}&gt;Do Something&lt;/Button&gt;{' '}
-          &lt;Button color="secondary" onClick={toggle}&gt;Cancel&lt;/Button&gt;
-        &lt;/ModalFooter&gt;
-      &lt;/Modal&gt;
+      &lt;Media className="mt-1"&gt;
+        &lt;Media left top href="#"&gt;
+          &lt;Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif" alt="Charizard" height="100px"/&gt;
+        &lt;/Media&gt;
+        &lt;Media body&gt;
+          &lt;Media heading&gt;
+            Guerrero Campos (Design Lead) -
+          &lt;/Media&gt;
+          As the Design Lead of the project, I understand the importance of UI/UX needs of an application. I applied my love for music and knew how important it was to have some sort of introduction music upon opening the site to help get the user in the “Pokemon” mind state, and pull them into the world of Pokedeck. Growing up I collected Pokemon cards and carried those heavy binders everywhere where I went. But that was then, and times have changed and technology has evolved from when I was a kid and so this application is for all the Pokemon card enthusiasts and for all future Pokemon card collectors.&lt;p&gt;&lt;a href="https://www.linkedin.com/in/guerrero-campos/"&gt;checkout my LinkedIn&lt;/a&gt;&lt;/p&gt;
+        &lt;/Media&gt;
+      &lt;/Media&gt;
+      &lt;Media className="mt-1"&gt;
+        &lt;Media left middle href="#"&gt;
+          &lt;Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif" alt="Squirtle" height="100px"/&gt;
+        &lt;/Media&gt;
+        &lt;Media body&gt;
+          &lt;Media heading&gt;
+            Allen Tan (Product Manager) -
+          &lt;/Media&gt;
+          As Product Manager, I had to take ownership of the vision of the overall product, helping the team get through blockers, and ensuring that requirements were met. Growing up, I was obsessed with all things Pokemon, including the anime, the games, and especially the trading card game. When I was nine, I got my first pack of Pokemon cards, which happened to contain a first-edition Venasaur!&lt;p&gt;&lt;a href="https://www.linkedin.com/in/allen-tan/"&gt; Checkout myLinkedIn&lt;/a&gt;&lt;/p&gt;
+        &lt;/Media&gt;
+      &lt;/Media&gt;
+      &lt;Media className="mt-1"&gt;
+        &lt;Media left bottom href="#"&gt;
+          &lt;Media object src="https://img.pokemondb.net/sprites/black-white/anim/shiny/haunter.gif" alt="Haunter" height="100px"/&gt;
+        &lt;/Media&gt;
+        &lt;Media body&gt;
+          &lt;Media heading&gt;
+          Fernando Romero (Project Manager) -
+          &lt;/Media&gt;
+          As the project manager I was able to motivate the team to keep on track with assigned portions of the project. I was  able to effectively communicate with current trello board information and updated information on which developers were assigned to the card. With input on external resources and development README file. &lt;p&gt;&lt;a href="https://www.linkedin.com/in/fernando-r-odnanref/"&gt;Checkout my LinkedIn&lt;/a&gt;&lt;/p&gt;
+        &lt;/Media&gt;
+      &lt;/Media&gt;
+      &lt;Media className="mt-1"&gt;
+        &lt;Media left bottom href="#"&gt;
+          &lt;Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/poliwrath.gif" alt="Poliwrath" height="100px"/&gt;
+        &lt;/Media&gt;
+        &lt;Media body&gt;
+          &lt;Media heading&gt;
+            Lex Peterson (Technical Lead) -
+          &lt;/Media&gt;
+          As Technical Lead of the team, I had to have a deep understanding of our code base and the technical needs of our project. My responsibilities included version control management and helping prepare for and guide our mentorship sessions.  Ever since I received my older cousin’s card doubles as a kid I’ve been a Pokemon fan, and getting to apply my coding skills while revisiting all my favorite Pokemon made for a fun and engaging project experience.  Coming from a mechanical engineering background with a Bachelor’s degree from Baylor University, I enjoyed encountering unique problems and learning to develop interesting solutions. &lt;p&gt;&lt;a href="https://www.linkedin.com/in/lex-peterson/"&gt;Checkout my LinkedIn&lt;/a&gt;&lt;/p&gt;
+        &lt;/Media&gt;
+      &lt;/Media&gt;
+      &lt;Media className="mt-1"&gt;
+        &lt;Media left bottom href="#"&gt;
+          &lt;Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/dragonite.gif" alt="Dragonite" height="100px"/&gt;
+        &lt;/Media&gt;
+        &lt;Media body&gt;
+          &lt;Media heading&gt;
+            Erik (Mentor)
+          &lt;/Media&gt;
+          Honorable mention to our mentor Erik who always gave clarity to our project and helped with all road blocks that came across. Gave invaluable resources to help guide us not only in this project but in all future projects. Erik is currently a full stack engineer at ZEAL. Like his favorite pokemon Dragonite, Erik selflessly rescued us while we were lost in the sea of our application. 
+        &lt;/Media&gt;
+      &lt;/Media&gt;
+      &lt;br&gt;&lt;/br&gt;
+      &lt;br&gt;&lt;/br&gt;
+      &lt;p className= "center"&gt;Checkout how this project came together on &lt;a href="https://github.com/squirtlesquad2021a/pokedeck_capstone_app"&gt;Github&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
     &lt;/&gt;
   );
 }
 &nbsp;
-export default AboutUs;</pre></td></tr></table></pre>
+export default AboutUs;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Apr 20 2021 11:55:26 GMT-0700 (Pacific Daylight Time)
+                at Mon Apr 26 2021 12:01:35 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

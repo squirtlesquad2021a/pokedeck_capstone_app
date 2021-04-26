@@ -5,7 +5,6 @@ import mockUsers from './mockUsers.js'
 import mockRankings from'./mockRankings'
 import AboutUs from './pages/AboutUs'
 import CardShow from './pages/CardShow'
-import ClaimBooster from './pages/ClaimBooster'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Rankings from './pages/Rankings'
@@ -223,8 +222,6 @@ class App extends Component{
             const card = this.state.cards.find(card => card.id === id)
             return (<CardShow card={card}/>)}
             } />
-          {/* <Route path= "/claimcard" component={ ClaimCard } /> */}
-          <Route path= "/claimbooster" component={ ClaimBooster } />
 
           <Route
               path="/usercardindex"

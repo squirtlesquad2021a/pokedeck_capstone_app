@@ -9,7 +9,7 @@ const AboutUs = (props) => {
     <>
     <h3 className="center">Get To Know the Team</h3>
     <div>
-      <Media>
+      <Media className="mt-1">
         <Media left top href="#">
           <Media object src="https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif" alt="Charizard" height="100px"/>
         </Media>
