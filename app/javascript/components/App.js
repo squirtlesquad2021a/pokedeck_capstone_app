@@ -5,7 +5,6 @@ import mockUsers from './mockUsers.js'
 import mockRankings from'./mockRankings'
 import AboutUs from './pages/AboutUs'
 import CardShow from './pages/CardShow'
-import ClaimBooster from './pages/ClaimBooster'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Rankings from './pages/Rankings'
@@ -216,15 +215,13 @@ class App extends Component{
           <Route exact path = "/" component={ Splash } />
           <Route path="/home" render={ (props) => <Home cards={ this.state.cards } /> } />
           <Route path = "/aboutus" component={ AboutUs } />
-          <Route path = "/rankings" render= { (props)=> <Rankings rankings={ this.state.rankings }
+          <Route path = "/leaderboard" render= { (props)=> <Rankings rankings={ this.state.rankings }
           /> } />
           <Route path="/cardshow/:id" render = {(props) => {
             const id = +props.match.params.id
             const card = this.state.cards.find(card => card.id === id)
             return (<CardShow card={card}/>)}
             } />
-          {/* <Route path= "/claimcard" component={ ClaimCard } /> */}
-          <Route path= "/claimbooster" component={ ClaimBooster } />
 
           <Route
               path="/usercardindex"

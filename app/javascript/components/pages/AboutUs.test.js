@@ -10,11 +10,11 @@ describe('When AboutUs renders', () => {
     beforeEach(() => {
       renderedAboutUs = shallow(<AboutUs />);
     });
-    it('displays a paragragh and 5 modals', () =>{
-      const paragragh = renderedAboutUs.find('p')
-      const modals = renderedAboutUs.find('Modal')
-      expect (paragragh.length).toEqual(1)
-      expect (modals.length).toEqual(5)
+    it('displays a header and 5 classname= mt-1', () =>{
+      const header = renderedAboutUs.find('h3')
+      const classes = renderedAboutUs.find('.mt-1')
+      expect (header.length).toEqual(1)
+      expect (classes.length).toEqual(5)
     })
   })
     

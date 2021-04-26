@@ -13,7 +13,7 @@ describe('When BinderShow renders', () => {
       user_id:1,
       card_id:1,
       quantity:1,
-      favorites:true,
+      favorites:false,
       card_data:{
         id: 1,
         name: "Alakazam",
@@ -27,8 +27,10 @@ describe('When BinderShow renders', () => {
         price: 250
       }}
   
+    let hasUpdateBinderBeenCalled = false
+
     beforeEach(() => {
-      renderedBinderShow = shallow(<BinderShow binder={binder}/>);
+      renderedBinderShow = shallow(<BinderShow binder={binder} updateBinder={() => {hasUpdateBinderBeenCalled = true}}/>);
       console.log(renderedBinderShow)
     });
     it('display card information', () =>{
@@ -36,5 +38,16 @@ describe('When BinderShow renders', () => {
       const image = renderedBinderShow.find('img')
       // expect (headtext.length).toEqual(1)
       expect (image.length).toEqual(1)
+    })
+    it('when user clicks checkbox, updateBinder prop is called', () => {
+
+      // Grab the checkbox in our page
+      const checkbox = renderedBinderShow.find('CustomInput');
+
+      // Simulate changing checkbox input
+      checkbox.simulate('change', { target: { checked: true } });
+
+      // assert
+      expect(hasUpdateBinderBeenCalled).toEqual(true)
     })
   })

@@ -6,14 +6,80 @@ import Adapter from 'enzyme-adapter-react-16'
 Enzyme.configure({ adapter: new Adapter()})
 
 describe('When UserCardIndex renders', () => {
+    let usersBinders = [
+      {
+        id:1,
+        user_id:1,
+        card_id:1,
+        quantity:1,
+        favorites:true,
+        card_data:{
+          id: 1,
+          name: "Alakazam",
+          pokemon_type: "Psychic",
+          set_id: "base1",
+          set_name: "Base",
+          set_series: "Base",
+          number: "1",
+          rarity: "Rare Holo",
+          image: "https://images.pokemontcg.io/base1/1_hires.png",
+          price: 250
+    
+        }
+       }, 
+       {
+        id:2,
+        user_id:1,
+        card_id:2,
+        quantity:1,
+        favorites:true,
+        card_data: {
+          id: 2,
+          name: "Blastoise",
+          pokemon_type: "Water",
+          set_id: "base1",
+          set_name: "Base",
+          set_series: "Base",
+          number: "2",
+          rarity: "Rare Holo",
+          image: "https://images.pokemontcg.io/base1/2_hires.png",
+          price: 399.99
+        },
+       }, 
+       {
+        id:3,
+        user_id:1,
+        card_id:3,
+        quantity:2,
+        favorites:true,
+        card_data:      {
+          id: 3,
+          name: "Chansey",
+          pokemon_type: "Basic",
+          set_id: "base1",
+          set_name: "Base",
+          set_series: "Base",
+          number: "3",
+          rarity: "Rare Holo",
+          image: "https://images.pokemontcg.io/base1/3_hires.png",
+          price: 83.98
+        }
+       }
+    ]
     let renderedUserCardIndex;
     beforeEach(() => {
-      renderedUserCardIndex = shallow(<UserCardIndex />);
+      renderedUserCardIndex = shallow(<UserCardIndex usersBinders={usersBinders}/>);
     });
     it('displays a header and a card deck', () =>{
-      const index = renderedUserCardIndex.find('h2')
-      const theDeck = renderedUserCardIndex.find('CardDeck')
-      expect (index.length).toEqual(1)
+      // const index = renderedUserCardIndex.find('h2')
+      const theDeck = renderedUserCardIndex.find('Row')
+      // expect (index.length).toEqual(1)
       expect (theDeck.length).toEqual(1)
+    })
+    it('NavLink for the binders exists', () =>{
+      // const index = renderedUserCardIndex.find('h2')
+      const renderedNavLinks = renderedUserCardIndex.find('NavLink')
+      // expect (index.length).toEqual(1)
+      expect (renderedNavLinks.length).toEqual(3)
     })
   })

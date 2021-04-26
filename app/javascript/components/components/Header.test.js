@@ -9,7 +9,7 @@ describe('When Header renders', () => {
   it('displays a Header', () => {
     const header = shallow(<Header />);
     const headerLink = header.find('NavLink');
-    expect(headerLink.length).toEqual(1);
+    expect(headerLink.length).toEqual(2);
     // expect(location.pathname).toEqual('/')
   });
 })

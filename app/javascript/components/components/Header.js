@@ -83,17 +83,25 @@ const Header = (props) => {
               </NavItem>
 
               <NavItem>
-                <NavLink to="/rankings" className="nav-link devise-text">See All Rankings</NavLink>
+                <NavLink to="/leaderboard" className="nav-link devise-text">See All Rankings</NavLink>
               </NavItem>
             </>
             }
             <NavItem>
             <NavLink to="/aboutus" className="nav-link devise-text"> About us</NavLink>
             </NavItem>
+
             { logged_in && isUserEligible &&
             <>
               <NavItem>
                 <Button color="primary" className= "claimButtons" onClick={ handleSubmit }>Claim Card</Button>{' '}
+              </NavItem>
+            </>
+            }
+            { logged_in && !isUserEligible &&
+            <>
+              <NavItem>
+                <Button color="info" className= "claimButtons">Daily Card: Unavailable</Button>{' '}
               </NavItem>
             </>
             }
