@@ -12,7 +12,8 @@ class Splash extends Component{
 
       this.state = {
         initialized: false,
-        playing: false
+        playing: false,
+        volume: 0.1
       }
       this.handlePlay = this.handlePlay.bind(this)
       this.handlePause = this.handlePause.bind(this)
@@ -35,11 +36,30 @@ render() {
           <ReactHowler
             src='https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3'
             playing={this.state.playing}
+            volume={this.state.volume}
           />
           <div className="playpause" >
             <button className= "button" onClick={ this.handlePlay }>Play</button>
             <button className= "button" onClick={ this.handlePause }>Pause</button>
           </div>
+
+          <div className='volume'>
+          <label>
+            Volume:
+            <span className='slider-container'>
+              <input
+                type='range'
+                min='0'
+                max='1'
+                step='.05'
+                value={this.state.volume}
+                onChange={e => this.setState({ volume: parseFloat(e.target.value) })}
+              />
+            </span>
+            {this.state.volume.toFixed(2)}
+          </label>
+        </div>
+
           <div className= "orangeSquare">
             <p className="splashInstructions">(Click Logo to Begin)</p>
           </div>
