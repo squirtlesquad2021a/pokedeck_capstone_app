@@ -73,17 +73,17 @@ const Header = (props) => {
           <Nav>
             { logged_in && isUserEligible &&
               <React.Fragment>
-                <Button color="primary" className= "claimButtons" onClick={ handleSubmit }>Claim Card</Button>{' '}
+                <Button variant="primary" className= "claimButtons" onClick={ handleSubmit }>Claim Card</Button>{' '}
               </React.Fragment>
             }
             { logged_in && !isUserEligible &&
               <React.Fragment>
-                <Button color="info" className= "claimButtons">Daily Card: Unavailable</Button>{' '}
+                <Button variant="info" className= "claimButtons">Daily Card: Unavailable</Button>{' '}
               </React.Fragment>
             }
             { logged_in && userRank.deck_size === 0 &&
               <React.Fragment>
-                <Button color="warning" className= "claimButtons" onClick={ handleBooster }>Free Booster pack</Button>{' '}
+                <Button variant="warning" className= "claimButtons" onClick={ handleBooster }>Free Booster pack</Button>{' '}
               </React.Fragment>
             }
           </Nav>
