@@ -7,25 +7,19 @@ import {
     Switch
   } from 'react-router-dom'
 import {
-  Container,
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem, 
+  Nav, 
   Button,
-  UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem,
-  Toast, ToastBody, ToastHeader
-} from 'reactstrap';
+} from 'react-bootstrap';
+
+import {
+  Toast, 
+  ToastBody, 
+  ToastHeader
+} from 'reactstrap'
 
 const Header = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
-
-
   const {
       logged_in,
       sign_in_route,
@@ -37,7 +31,6 @@ const Header = (props) => {
       userRank
     } = props
   
-
   const handleSubmit = () => {
     props.claimDailyCard(current_user.id)
     setSubmitted(true)
@@ -48,132 +41,89 @@ const Header = (props) => {
     setSubmitted(true)
   }
 
-  // let usersBinders = []
-
-  // if (current_user) {
-  //   usersBinders = bindersleeves.filter(binder => {
-  //     return binder.user_id === current_user.id
-  //   })
-  // }
-
-  // console.log( usersBinders )
-
   return (
-    <>
-    
-    <div className="header-main"></div>
-        <Navbar color="secondary" dark expand="md">
-        {/* <Container> */}
-        <Nav>
-        <NavItem>
-        <NavLink to="/home"><img src={ logo } alt="pokedeckLogo" className="logo" /></NavLink>
-        </NavItem>
-        <NavbarToggler onClick={toggle} />
-        </Nav>
-   
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            
-            
-
+    <React.Fragment>
+      <Navbar bg="secondary" expand="lg">
+        <Navbar.Brand to="/home">
+          <NavLink to="/home">
+            <img 
+              src={ logo } 
+              alt="pokedeckLogo" 
+              className="logo" 
+            />
+          </NavLink>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
             { logged_in &&
-            <>
-              <NavItem>
-                <NavLink to="/usercardindex" className="nav-link devise-text">See my deck</NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavLink to="/leaderboard" className="nav-link devise-text">See All Rankings</NavLink>
-              </NavItem>
-            </>
-            }
-            <NavItem>
-            <NavLink to="/aboutus" className="nav-link devise-text"> About us</NavLink>
-            </NavItem>
-
+              <React.Fragment>
+                <NavLink to="/usercardindex" className="nav-link devise-text">
+                  See my deck
+                </NavLink>
+                <NavLink to="/leaderboard" className="nav-link devise-text">
+                  See All Rankings
+                </NavLink>
+              </React.Fragment>
+            } 
+            <NavLink to="/aboutus" className="nav-link devise-text">
+              About Us
+            </NavLink>
+          </Nav>
+          <Nav>
             { logged_in && isUserEligible &&
-            <>
-              <NavItem>
+              <React.Fragment>
                 <Button color="primary" className= "claimButtons" onClick={ handleSubmit }>Claim Card</Button>{' '}
-              </NavItem>
-            </>
+              </React.Fragment>
             }
             { logged_in && !isUserEligible &&
-            <>
-              <NavItem>
+              <React.Fragment>
                 <Button color="info" className= "claimButtons">Daily Card: Unavailable</Button>{' '}
-              </NavItem>
-            </>
+              </React.Fragment>
             }
-
             { logged_in && userRank.deck_size === 0 &&
-            <>
-              <NavItem>
+              <React.Fragment>
                 <Button color="warning" className= "claimButtons" onClick={ handleBooster }>Free Booster pack</Button>{' '}
-              </NavItem>  
-            </>
+              </React.Fragment>
             }
           </Nav>
           <Nav>
             { logged_in &&
-            <>
-            <div className="p-3 my-2 rounded">
-              <Toast >
-                <ToastHeader>
-                  {userRank.username}
-                </ToastHeader>
-                <ToastBody >
-                  Deck Value:$ {userRank.deck_price}             
-                  <br></br>
-                  Deck Size: {userRank.deck_size}
-                  <br></br>
-                  Your Ranking: {userRank.ranking}
-                </ToastBody>
-              </Toast>
-            </div>
-              <NavItem>
-                <a href={ sign_out_route } className="nav-link devise-text">Sign Out</a>
-              </NavItem>
-            </>
+              <React.Fragment>
+                <div className="p-3 my-2 rounded">
+                  <Toast >
+                    <ToastHeader>
+                      {userRank.username}
+                    </ToastHeader>
+                    <ToastBody >
+                      Deck Value:$ {userRank.deck_price}             
+                      <br></br>
+                      Deck Size: {userRank.deck_size}
+                      <br></br>
+                      Your Ranking: {userRank.ranking}
+                    </ToastBody>
+                  </Toast>
+                </div>
+                <Nav.Link href={ sign_out_route } className="nav-link devise-text">Sign Out</Nav.Link>
+              </React.Fragment>
             }
-                
+            </Nav>
+            <Nav>    
             { !logged_in &&
-              <>
-                <NavItem>
-                  <a href={ new_user_route } className="nav-link devise-text" >Create Account</a>
-                </NavItem>
-                <NavItem>
-                  <a href={ sign_in_route } className="nav-link devise-text">Sign In</a>
-                </NavItem>
-              </>
+              <React.Fragment>
+                <Nav.Link href={ new_user_route } className="nav-link devise-text" >Create Account</Nav.Link>
+                <Nav.Link href={ sign_in_route } className="nav-link devise-text">Sign In</Nav.Link>
+              </React.Fragment>
             }
           </Nav>
-        </Collapse>
-      {/* </Container> */}
-    </Navbar>
-
-    { submitted && <Redirect to="/usercardindex" /> }
-  </>
+        </Navbar.Collapse>
+      </Navbar>
+      { submitted && <Redirect to="/usercardindex" /> }
+    </React.Fragment>
   );
-  }
+}
  
 export default Header;
-
-
-
-<UncontrolledDropdown>
-      <DropdownToggle caret>
-        Dropdown
-      </DropdownToggle>
-      <DropdownMenu>
-        <DropdownItem header>Header</DropdownItem>
-        <DropdownItem disabled>Action</DropdownItem>
-        <DropdownItem>Another Action</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>Another Action</DropdownItem>
-      </DropdownMenu>
-    </UncontrolledDropdown>
-
 
   
       
