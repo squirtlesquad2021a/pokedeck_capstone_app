@@ -33,6 +33,7 @@
     justify-content: center;
     bottom: 1;
     position:absolute;
+    top: -4px;
 }
 
 .square {
@@ -63,11 +64,17 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     max-width: 100%;
-    min-height: 100vh;
-    /* mobile viewport bug fix */
-    min-height: -webkit-fill-available;
     bottom: 0;
+    flex-direction: column;
+    display:flex;
+    position:absolute;
+}
 
+.center-splash {
+    text-align: center;
+    -ms-flex-item-align: center;
+    position:absolute;
+    top:100vh;
 }
 
 .center {
