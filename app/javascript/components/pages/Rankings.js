@@ -12,7 +12,11 @@ class Rankings extends Component{
           new_user_route
         } = this.props
   return (
-    <Table hover>
+    <>
+    <div className='browseCardsDiv'>
+        <h2 className="center">See How you Stack Up!</h2>
+        </div>
+    <Table hover className='rankingTable'>
       <thead>
         <tr>
           <th className="rankingsColumnText">#</th>
@@ -26,7 +30,7 @@ class Rankings extends Component{
         // let {ranking_data } = ranking 
         return (
 
-        <tr key = {index}>
+        <tr key = {index} className='rankingList'>
           <td>{index + 1 }</td>
           <td>{ranking.username}</td>
           <td>{ranking.deck_price}</td>
@@ -35,6 +39,7 @@ class Rankings extends Component{
       )})}
       </tbody>
     </Table>
+    </>
   );
 }
 }

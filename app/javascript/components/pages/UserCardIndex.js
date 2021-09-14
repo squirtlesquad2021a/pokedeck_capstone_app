@@ -8,14 +8,16 @@ class UserCardIndex extends Component {
     render() {
         return (
             <>
+            <div className="browseCardsDiv">
                 <h2 className="center">These are your cards</h2>
-                <Container fluid>
+                </div>
+                <Container fluid='sm'>
                     <Row>
                         {this.props.usersBinders && this.props.usersBinders.map((binder, index) => {
                             let { card_data } = binder 
                             return (
                                 <Col md="3" xs="16" key= {index}>
-                                    <Card key= {index}>
+                                    <Card key= {index} className="cards">
                                         <NavLink to={`/bindershow/${binder.id}`}>
                                             <CardImg top width="100%" src={card_data.image} alt="Card image" />       
                                         </NavLink>
