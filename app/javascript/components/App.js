@@ -209,7 +209,7 @@ class App extends Component{
             claimDailyCard={this.claimDailyCard}
             claimBoosterPack={this.claimBoosterPack}
             userRank={this.state.userRank}
-          />
+           className = 'header'/>
          }
         <Switch>
           <Route exact path = "/" component={ Splash } />

@@ -9,7 +9,7 @@ render() {
     return(
         <>
         <div className = "center">
-            <h6>&copy; Squirtle Squad </h6> 
+            <h2>&copy; Squirtle Squad </h2> 
             <NavLink to="/aboutus" className="devise-text"> About us</NavLink>
         </div>
         </>
