@@ -17,8 +17,10 @@ class Home extends Component{
       } = this.props
     return(
       <>
-        <h2 className="center">Browse cards</h2>
-        <Container fluid>
+      <div className='browseCardsDiv'>
+        <h2 className="center">Browse cards Below</h2>
+        </div>
+        <Container fluid='sm' >
             <Row>
               {this.props.cards && this.props.cards.map((card, index) => {
                 return (

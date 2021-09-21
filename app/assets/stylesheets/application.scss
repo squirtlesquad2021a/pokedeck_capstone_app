@@ -16,11 +16,28 @@
  */
 @import 'bootstrap';
 
+.logo:hover {
+    transform: scale(1.15);
+}
+
 .logo {
     height: 60px;
     width: 170px;
 
 }
+
+.headerComponents {
+    background-color:black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 21;
+  }
+
+  #responsive-navbar-nav {
+    display: flex;
+    justify-content: flex-end
+  }
 
 
 .logo-splash {
@@ -77,22 +94,72 @@
     top:100vh;
 }
 
+.browseCardsDiv {
+    background-image: url('https://www.teahub.io/photos/full/327-3278172_pokemon-ghost-desktop-wallpaper-hd.jpg');
+    background-size: contain;
+    margin-top: 5vw;
+    padding: 5vw;
+}
+
+@media screen and (max-width: 600px) {
+    .browseCardsDiv {
+      margin-top: 15%;
+    }
+  }
+  
+
+
 .center {
     text-align: center;
     -ms-flex-item-align: center;
+    font-size: 8vw;
+    text-decoration: underline;
+}
+
+.cardShowName {
+    text-align: center;
+    -ms-flex-item-align: center;
+    font-size: 8vw;
+    text-decoration: underline;
+    margin-top: 5vw;
+    padding: 5vw;
+}
+
+@media screen and (max-width: 600px) {
+    .cardShowName {
+      margin-top: 15%;
+    }
+  }
+
+.showText {
+    text-align: center;
+    -ms-flex-item-align: center;
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .nav-link {
     // margin-left: 100px;
-    color:black !important;
+    color:white !important;
 }
-@font-face {
-    font-family: "Pixeboy";
-    src: font-url("Pixeboy.ttf") format("truetype");
+// @font-face {
+//     font-family: "Pixeboy";
+//     src: font-url("Pixeboy.ttf") format("truetype");
+//   }
+
+  @font-face {
+    font-family: "Battleground";
+    src: font-url("Battleground.ttf") format("truetype");
   }
+
   body{
-      font-family: "Pixeboy";
-      background-color: darkgray;
+      font-family: "Battleground";
+      background-image: url('https://wallpapercave.com/wp/wp2815553.jpg');
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
   }
 
 .devise-text {
@@ -107,11 +174,19 @@
 }
 
 .claimButtons {
-    // margin-left: 150px;
+    background-color: black;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
 
 .rankingsColumnText {
-    color:brown
+    color:brown;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.rankingList {
+    color: white;
+    font-size: 35px;
 }
 
 .cardBox {
@@ -123,7 +198,11 @@
 .cards {
     display: inline-flex;
     margin-right:1.5em;
+    box-shadow: 10px 10px 5px rgb(2, 20, 102);
+}
 
+.cards:hover {
+    transform: scale(1.1);
 }
 
 .button {
@@ -153,3 +232,74 @@
         width: 100vw;
     }
 }
+
+// .cardContainer {
+//     flex: 1;
+//     background: black;
+//     opacity:100%;
+//     overflow-y: scroll;
+// }
+
+.nav-link-devise-text:hover {
+    color: red;
+}
+
+.seeMyDeck {
+    margin-left: 300px;
+}
+
+.seeMyDeck:hover {
+    color: red;
+}
+
+.seeAllRankings {
+    margin-left: 100px;
+}
+
+.seeAllRankings:hover {
+    color: red;
+}
+
+.aboutUs {
+    margin-left: 100px;
+}
+
+.aboutUs:hover {
+    color: red;
+}
+
+.playerInfo {
+    background-color: black;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signOut {
+    margin-right: 150px;
+}
+
+.signOut:hover {
+    color: red;
+}
+
+.dropDownItems {
+    font-size: 50px;
+}
+
+.createAccount {
+    margin-right: 250px;
+}
+
+.createAccount:hover {
+    color: red;
+}
+
+.signIn {
+    margin-right: 350px;
+}
+
+.signIn:hover {
+    color: red;
+}
+

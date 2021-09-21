@@ -15,7 +15,8 @@ import {
 import {
   Toast, 
   ToastBody, 
-  ToastHeader
+  ToastHeader,
+  Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap'
 
 const Header = (props) => {
@@ -41,9 +42,13 @@ const Header = (props) => {
     setSubmitted(true)
   }
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+
   return (
     <React.Fragment>
-      <Navbar bg="secondary" expand="lg">
+      <Navbar bg="bg-dark" expand="md" className='headerComponents'>
         <Navbar.Brand to="/home">
           <NavLink to="/home">
             <img 
@@ -55,21 +60,26 @@ const Header = (props) => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="mr-auto" >
             { logged_in &&
               <React.Fragment>
-                <NavLink to="/usercardindex" className="nav-link devise-text">
+                <NavLink to="/usercardindex" className="seeMyDeck">
                   See my deck
                 </NavLink>
-                <NavLink to="/leaderboard" className="nav-link devise-text">
+                <NavLink to="/leaderboard" className="seeAllRankings">
                   See All Rankings
                 </NavLink>
               </React.Fragment>
             } 
-            <NavLink to="/aboutus" className="nav-link devise-text">
+            <NavLink to="/aboutus" className="aboutUs">
               About Us
             </NavLink>
           </Nav>
+          { logged_in &&
+          <React.Fragment>
+            <Nav.Link href={ sign_out_route } className="signOut">Sign Out</Nav.Link>
+            </React.Fragment>
+          }
           <Nav>
             { logged_in && isUserEligible &&
               <React.Fragment>
@@ -87,32 +97,32 @@ const Header = (props) => {
               </React.Fragment>
             }
           </Nav>
+
+
           <Nav>
             { logged_in &&
               <React.Fragment>
-                <div className="p-3 my-2 rounded">
-                  <Toast >
-                    <ToastHeader>
-                      {userRank.username}
-                    </ToastHeader>
-                    <ToastBody >
-                      Deck Value:$ {userRank.deck_price}             
-                      <br></br>
-                      Deck Size: {userRank.deck_size}
-                      <br></br>
-                      Your Ranking: {userRank.ranking}
-                    </ToastBody>
-                  </Toast>
-                </div>
-                <Nav.Link href={ sign_out_route } className="nav-link devise-text">Sign Out</Nav.Link>
+              <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret className='playerInfo'>Player Info</DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem className='dropDownItems'>Deck Value:$ {userRank.deck_price}</DropdownItem>
+                  <DropdownItem className='dropDownItems'>Deck Size: {userRank.deck_size}</DropdownItem>
+                  <DropdownItem className='dropDownItems'>our Ranking: {userRank.ranking}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+
+
+                {/* <Nav.Link href={ sign_out_route } className="nav-link-devise-text">Sign Out</Nav.Link> */}
               </React.Fragment>
             }
             </Nav>
+
+
             <Nav>    
             { !logged_in &&
               <React.Fragment>
-                <Nav.Link href={ new_user_route } className="nav-link devise-text" >Create Account</Nav.Link>
-                <Nav.Link href={ sign_in_route } className="nav-link devise-text">Sign In</Nav.Link>
+                <Nav.Link href={ new_user_route } className="createAccount" >Create Account</Nav.Link>
+                <Nav.Link href={ sign_in_route } className="signIn">Sign In</Nav.Link>
               </React.Fragment>
             }
           </Nav>
@@ -124,6 +134,8 @@ const Header = (props) => {
 }
  
 export default Header;
+
+
 
   
       

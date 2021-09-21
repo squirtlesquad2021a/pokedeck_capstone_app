@@ -7,7 +7,9 @@ const AboutUs = (props) => {
 
   return (
     <>
+    <div className='browseCardsDiv'>
     <h3 className="center">Get To Know the Team</h3>
+    </div>
     <div>
       <Media className="mt-1">
         <Media left top href="#">

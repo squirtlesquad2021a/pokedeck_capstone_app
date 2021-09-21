@@ -8,14 +8,16 @@ class CardShow extends Component {
 
     return (
       <>
-        <div className = "center"> 
-            <h1>{card.name}</h1>
+      <h1 className='cardShowName'>{card.name}</h1>
             <br></br>
+        <div className = "showText"> 
             <img src= {card.image} alt="card Image" width="25%" height="25%"></img> 
-            <div>Name: {card.name}</div>
-            <div>Type: {card.pokemon_type}</div>
-            <div>Rarity: {card.rarity}</div>
-            <div>Price: {card.price}</div>
+            <div className='cardInfo'>
+              <div>Name: {card.name}</div>
+              <div>Type: {card.pokemon_type}</div>
+              <div>Rarity: {card.rarity}</div>
+              <div>Price: {card.price}</div>
+            </div>
         </div>
       </>
     )
