@@ -15,6 +15,18 @@ describe('When Splash renders', () => {
       const anchor = renderedSplash.find('a')
       expect (paragragh.length).toEqual(1)
       expect (anchor.length).toEqual(1)
-      // expect(response).to have_http_status(200)
+    })
+    it('displays a span tag with instructions', () =>{
+      const spann = renderedSplash.find('span')
+      expect (spann.length).toEqual(1)
+      expect(spann.text()).toEqual("(Click Logo to Begin)")
+    })
+    it('displays 4 h1 tags', () =>{
+      const largeLetters = renderedSplash.find('p')
+      expect (largeLetters.length).toEqual(1)
+    })
+    it('displays music play options', () =>{
+      const music = renderedSplash.find('ReactHowler')
+      expect (music.length).toEqual(1)
     })
   })
