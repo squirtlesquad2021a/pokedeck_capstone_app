@@ -31,4 +31,13 @@ RSpec.describe "Cards", type: :request do
         expect(first_card['price']).to eq 250
       end
   end
+
+  # describe "GET /cards" do
+  #   it "raises an error if there are no cards" do
+  #       get '/cards'
+
+  #       card_response = JSON.parse(response.body)
+  #       expect(response).to have_http_status(404)
+  #     end
+  # end
 end

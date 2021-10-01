@@ -7,8 +7,7 @@ Enzyme.configure({ adapter: new Adapter()})
 describe('When Footer renders', () => {
   it('displays a Footer', () => {
     const footer = shallow(<Footer />);
-    const footerText = footer.find('h6');
-    expect(footerText.text()).toEqual("© Squirtle Squad ");
-    // expect(footer.find('h6').text()).toEqual("&copy; Squirtle Squad");
+    const footerText = footer.find('h2');
+    expect (footerText.length).toEqual(1)
   });
 })

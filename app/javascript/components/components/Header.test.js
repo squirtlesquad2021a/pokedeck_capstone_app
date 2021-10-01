@@ -9,7 +9,10 @@ describe('When Header renders', () => {
   it('displays a Header', () => {
     const header = shallow(<Header />);
     const headerLink = header.find('NavLink');
-    expect(headerLink.length).toEqual(2);
+    expect(headerLink.length).toEqual(4);
     // expect(location.pathname).toEqual('/')
   });
+  // I want to test that an error is raised if header does not render properly. but not sure how to go around it
+
+
 })
