@@ -10,23 +10,24 @@ describe('When Splash renders', () => {
     beforeEach(() => {
       renderedSplash = shallow(<Splash />);
     });
-    it('displays an anchor tag and a paragraph tag', () =>{
-      const paragragh = renderedSplash.find('p')
+    it('displays an anchor tag', () =>{
       const anchor = renderedSplash.find('a')
-      expect (paragragh.length).toEqual(1)
       expect (anchor.length).toEqual(1)
     })
-    it('displays a span tag with instructions', () =>{
+    it('displays 2 span tags with instructions', () =>{
       const spann = renderedSplash.find('span')
-      expect (spann.length).toEqual(1)
-      expect(spann.text()).toEqual("(Click Logo to Begin)")
+      expect (spann.length).toEqual(2)
     })
     it('displays 4 h1 tags', () =>{
-      const largeLetters = renderedSplash.find('p')
-      expect (largeLetters.length).toEqual(1)
+      const largeLetters = renderedSplash.find('h1')
+      expect (largeLetters.length).toEqual(4)
     })
     it('displays music play options', () =>{
       const music = renderedSplash.find('ReactHowler')
       expect (music.length).toEqual(1)
+    })
+    it('displays 5 images', () =>{
+      const images = renderedSplash.find('img')
+      expect (images.length).toEqual(5)
     })
   })

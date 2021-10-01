@@ -14,8 +14,14 @@ describe('When AboutUs renders', () => {
       const header = renderedAboutUs.find('h3')
       const classes = renderedAboutUs.find('.mt-1')
       expect (header.length).toEqual(1)
+      // checking to make sure the heading displays the correct text.
+      expect (header.text()).toEqual('Get To Know the Team')
       expect (classes.length).toEqual(5)
       expect (header)
+    })
+    it('displays paragraphs', ()=> {
+      const summary = renderedAboutUs.find('p')
+      expect (summary.length).toEqual(5)
     })
   })
     

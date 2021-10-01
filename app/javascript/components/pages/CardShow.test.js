@@ -26,4 +26,8 @@ describe('When CardShow renders', () => {
       const headerTag = renderedCardShow.find('h1')
       expect (headerTag.length).toEqual(1)
     })
+    it('displays card information', () =>{
+      const headerTag = renderedCardShow.find('div')
+      expect (headerTag.length).toEqual(6)
+    })
   })
