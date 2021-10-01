@@ -15,5 +15,6 @@ describe('When Splash renders', () => {
       const anchor = renderedSplash.find('a')
       expect (paragragh.length).toEqual(1)
       expect (anchor.length).toEqual(1)
+      // expect(response).to have_http_status(200)
     })
   })

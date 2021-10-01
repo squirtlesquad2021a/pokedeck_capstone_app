@@ -15,6 +15,7 @@ describe('When AboutUs renders', () => {
       const classes = renderedAboutUs.find('.mt-1')
       expect (header.length).toEqual(1)
       expect (classes.length).toEqual(5)
+      expect (header)
     })
   })
     

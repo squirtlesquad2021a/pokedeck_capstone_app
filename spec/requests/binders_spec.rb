@@ -6,8 +6,8 @@ RSpec.describe "Binders", type: :request do
       #arrange
       user1 =User.create(
         email:"userone@noemail.com",
-        password:"password",
-        username:"userone"
+        password:"P@ssw0rd",
+        username:"userone23"
       )
       card1 = Card.create(
         name: "Alakazam",
@@ -42,8 +42,8 @@ RSpec.describe "Binders", type: :request do
       #arrange
       user1 =User.create(
         email:"userone@noemail.com",
-        password:"password",
-        username:"userone"
+        password:"P@ssw0rd",
+        username:"userone23"
       )
       card1 = Card.create(
         name: "Alakazam",
@@ -86,8 +86,8 @@ RSpec.describe "Binders", type: :request do
       #arrange
       user1 =User.create(
         email:"userone@noemail.com",
-        password:"password",
-        username:"userone"
+        password:"P@ssw0rd",
+        username:"userone23"
       )
       card1 = Card.create(
         name: "Alakazam",
@@ -139,8 +139,8 @@ RSpec.describe "Binders", type: :request do
       #arrange
       user1 =User.create(
         email:"userone@noemail.com",
-        password:"password",
-        username:"userone"
+        password:"P@ssw0rd",
+        username:"userone23"
       )
       card1 = Card.create(
         name: "Alakazam",
@@ -269,8 +269,8 @@ RSpec.describe "Binders", type: :request do
       #arrange
       user1 =User.create(
         email:"userone@noemail.com",
-        password:"password",
-        username:"userone"
+        password:"P@ssw0rd",
+        username:"userone23"
       )
       card1 = Card.create(
         name: "Alakazam",

@@ -7,8 +7,8 @@ RSpec.describe "Rankings", type: :request do
       #arrange
       user1 =User.create(
         email:"userone@noemail.com",
-        password:"password",
-        username:"userone"
+        password:"P@ssw0rd",
+        username:"userone23"
       )
       card1 = Card.create(
         name: "Alakazam",
@@ -51,7 +51,7 @@ RSpec.describe "Rankings", type: :request do
       expect(response).to have_http_status(200)
       expect(ranking_response.length).to eq 1
       first_ranking = ranking_response.first
-      expect(first_ranking['username']).to eq 'userone'
+      expect(first_ranking['username']).to eq 'userone23'
       expect(first_ranking['most_valuable_card']).to eq 'Blastoise'
       expect(first_ranking['deck_price']).to eq 899.99
 

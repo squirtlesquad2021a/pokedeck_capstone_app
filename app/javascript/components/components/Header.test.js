@@ -12,4 +12,6 @@ describe('When Header renders', () => {
     expect(headerLink.length).toEqual(2);
     // expect(location.pathname).toEqual('/')
   });
+  // I want to test that an error is raised if header does not render properly.
+  it('')
 })
